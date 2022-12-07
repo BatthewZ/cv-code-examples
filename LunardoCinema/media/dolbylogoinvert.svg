@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="74.964363mm"
+   height="50.357136mm"
+   viewBox="0 0 74.964363 50.357136"
+   version="1.1"
+   id="svg5"
+   xml:space="preserve"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   sodipodi:docname="dolbylogoinvert.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.914906"
+     inkscape:cx="-324.07701"
+     inkscape:cy="391.84353"
+     inkscape:window-width="2560"
+     inkscape:window-height="1361"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+     
+     <defs
+     id="defs2" >
+     <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(0, 131, 175, .5);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(0, 84, 105, 0.5);stop-opacity:1" />
+    </linearGradient>
+    </defs>
+     <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-69.028916,-57.952535)"><path
+       id="rect1076"
+       style="fill:url(#grad1);stroke-width:0.264583"
+       d="m 143.99328,57.952535 -7.60677,0.10387 c -6.96493,0.0953 -7.73529,0.151613 -9.12916,0.668693 -7.43763,2.759107 -12.58108,8.673466 -14.94741,17.186548 -0.6541,2.353197 -0.71949,2.997433 -0.71675,7.086389 0.003,3.748486 0.10015,4.882167 0.58446,6.804236 1.96433,7.796432 7.09081,14.305239 13.33355,16.928169 3.12957,1.3149 4.5056,1.49115 11.80135,1.51412 l 6.68073,0.0212 V 83.109139 Z m -68.03926,0.04237 c -6.151664,0 -6.806934,0.04245 -6.884334,0.4439 -0.0471,0.24401 -0.05444,11.564525 -0.01654,25.157121 l 0.06873,24.713734 7.206795,-0.093 7.207312,-0.093 2.318205,-0.82424 c 3.354192,-1.19301 5.03537,-2.28717 7.867737,-5.11906 3.939516,-3.938865 6.296995,-8.573198 7.311705,-14.374832 0.60355,-3.450796 0.36411,-8.694864 -0.54932,-12.03234 C 98.110386,67.099341 92.170695,60.604417 84.725061,58.54113 82.968253,58.0543 82.011594,57.99491 75.95402,57.99491 Z" /></g></svg>

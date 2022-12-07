@@ -1,0 +1,63 @@
+:root {
+  --blue: #3d5a80;
+  --darkBlue: #2f4664;
+  --darkestBlue: #1a365c;
+  --palestBlue: #e0fbfc;
+  --pink: #ff4365;
+  --paleOrange: #edbbb4;
+  --lightishBlue: #69a3c5;
+  --lightBlue: #98c1d9;
+  --defaultMargin: 3px;
+}
+
+/* 
+Fonts: 
+
+font-family: 'Anton', sans-serif;
+font-family: 'Kanit', sans-serif;
+font-family: 'Luckiest Guy', cursive;
+font-family: 'Passion One', cursive;
+font-family: 'Russo One', sans-serif;
+
+*/
+
+body {
+  margin: 0;
+  padding: 0px;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif; */
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--darkBlue);
+  /* background-image: linear-gradient(to left, var(--blue), var(--darkBlue)); */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.blue {
+  color: var(--blue);
+}
+.darkBlue {
+  color: var(--darkBlue);
+}
+.darkestBlue {
+  color: var(--darkestBlue);
+}
+.palestBlue {
+  color: var(--palestBlue);
+}
+.pink {
+  color: var(--pink);
+}
+.paleOrange {
+  color: var(--paleOrange);
+}
+.lightishBlue {
+  color: var(--lightishBlue);
+}
+.lightBlue {
+  color: var(--lightBlue);
+}

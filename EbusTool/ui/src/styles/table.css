@@ -1,0 +1,18 @@
+table {
+  /* border: 1px solid var(--nearlyWhite); */
+  border-collapse: collapse;
+  border: 1px solid var(--paleBlue2);
+}
+
+td,
+th {
+  border-bottom: 1px solid var(--paleBlue2);
+  border-left: 1px solid var(--nearlyWhite);
+  border-right: 1px solid var(--nearlyWhite);
+  text-align: center;
+  padding: 10px;
+}
+
+.superHeading {
+  max-width: 33%;
+}

@@ -1,0 +1,190 @@
+.lessonReader {
+  height: auto;
+  max-width: 100%;
+}
+
+.lessonReader p {
+  text-align: justify;
+}
+
+.lessonStepsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.lesson-lessonType {
+  font-family: 'Kanit', sans-serif;
+  font-size: 1.3em;
+  color: var(--blue);
+}
+
+.lesson-pracTime {
+  color: var(--lightishBlue);
+  margin: var(--defaultMargin);
+  font-weight: bold;
+}
+
+.step-pracTime {
+  color: var(--lightishBlue);
+}
+
+.arrowContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  width: 10%;
+}
+
+.arrowButton {
+  color: var(--lightBlue);
+  font-size: 5em;
+  font-family: 'Passion One', cursive;
+  padding: 20px;
+  transition: color 0.1s;
+}
+
+.arrowButton:hover,
+.arrowButton:focus {
+  color: var(--blue);
+  cursor: pointer;
+}
+
+.arrowButton:active {
+  color: var(--darkBlue);
+}
+
+.viewStep {
+  width: 100%;
+  height: auto;
+}
+
+.viewStep img {
+  max-height: 50%;
+  width: auto;
+  max-width: 80%;
+}
+
+.viewStep p {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.stepsNav {
+  background-color: var(--lightBlue);
+}
+
+.stepsNavChecked {
+  background-color: var(--blue);
+}
+
+.stepsNav,
+.stepsNavChecked {
+  width: 40px;
+  height: 7px;
+  margin-inline: 4px;
+  transition: background-color 0.2s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.stepsNav:hover,
+.stepsNavChecked:hover {
+  cursor: pointer;
+}
+
+.viewStep img {
+  margin: 8px;
+}
+
+.viewLessons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.viewCards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.lessonCard {
+  width: 270px;
+  height: 300px;
+  background: rgba(0, 0, 0, 0.253) url('../img/guitar.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s;
+  margin: 12px;
+  color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.408);
+}
+
+.lessonCard,
+.cardBody {
+  border-radius: 12px;
+}
+
+.lessonCard:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.cardPracticeTime {
+  color: var(--lightishBlue);
+}
+
+.cardSteps,
+.cardPracticeTime {
+  margin-bottom: var(--defaultMargin);
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90%;
+}
+
+.cardTitle {
+  margin-top: 7px;
+  font-family: 'Luckiest Guy', cursive;
+
+  font-size: 1.4em;
+  text-shadow: 0px 0px 13px rgb(0, 0, 0);
+  text-align: left;
+  padding: 8px;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  text-align: justify;
+  background-color: white;
+  height: stretch;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  color: var(--blue);
+  padding: 10px;
+}
+
+.cardLessonType {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 5px;
+  padding-inline: 14px;
+  margin-top: var(--defaultMargin);
+  font-weight: bold;
+  text-shadow: 0px 0px 8px rgb(0, 0, 0);
+}

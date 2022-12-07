@@ -1,0 +1,96 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.profile hr {
+  border-top: 1px solid var(--lightBlue);
+  opacity: 0.4;
+}
+
+.profile .h1-2 {
+  font-family: 'Russo One', sans-serif;
+  color: var(--darkestBlue);
+  font-weight: normal;
+  font-size: 2.4em;
+}
+
+.profile .h1 {
+  color: var(--lightishBlue);
+  font-weight: normal;
+  font-size: 2.4em;
+}
+
+.profile .h2 {
+  font-size: 2em;
+}
+
+.profile .h3,
+.profile .h2 {
+  color: var(--lightBlue);
+  font-weight: normal;
+  margin-inline: var(--defaultMargin);
+}
+
+.profileRow,
+.profileCharts {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  text-align: left;
+}
+
+.profileCharts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.lessonChartsRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.minimizeButton {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  min-height: 29px;
+  max-height: 29px;
+  min-width: 29px;
+  max-width: 29px;
+  background-color: var(--lightBlue);
+  top: -2px;
+  margin: 3px;
+  border-radius: 20px;
+}
+
+.minimizeButton:hover {
+  background-color: var(--blue);
+  cursor: pointer;
+}
+
+.minimizeButton:active {
+  background-color: var(--darkBlue);
+}
+
+.minimizeButtonText {
+  font-size: 1.2em;
+  font-family: 'Russo one', cursive;
+  font-weight: normal;
+  color: white;
+  position: absolute;
+  top: 3px;
+  left: 10px;
+  transition: all 0.4s;
+}
+
+td,
+th {
+  padding: 20px;
+}

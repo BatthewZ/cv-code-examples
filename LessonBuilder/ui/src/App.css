@@ -1,0 +1,319 @@
+/* 
+Fonts: 
+
+font-family: 'Anton', sans-serif;
+font-family: 'Kanit', sans-serif;
+font-family: 'Luckiest Guy', cursive;
+font-family: 'Passion One', cursive;
+font-family: 'Russo One', sans-serif;
+
+*/
+
+/* Colors: 
+
+  --blue: #3d5a80;
+  --darkBlue: #2f4664;
+  --darkestBlue: #1a365c;
+  --palestBlue: #e0fbfc;
+  --pink: #ff4365;
+  --paleOrange: #edbbb4;
+  --lightishBlue: #69a3c5;
+  --lightBlue: #98c1d9;
+*/
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+  padding: 0px;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+h1,
+h2,
+h3,
+h4 {
+  margin: var(--defaultMargin);
+  padding: 0;
+  font-family: 'Russo one', cursive;
+  letter-spacing: 2px;
+  color: var(--darkestBlue);
+  font-weight: bold;
+}
+
+.h1 {
+  font-size: 2em;
+}
+.h2 {
+  font-size: 1.5em;
+}
+.h3 {
+  font-size: 1.3em;
+}
+.h4 {
+  font-size: 1em;
+}
+
+textarea,
+input {
+  font-size: 1em;
+  padding: 4px;
+  border-radius: 3px;
+  margin: 6px;
+  transition: all 0.3s;
+}
+
+textarea {
+  font-family: 'Roboto', sans-serif;
+  border: 1px solid var(--lightBlue);
+  transition: all 0s;
+  outline: none;
+  resize: none;
+  min-width: 30vw;
+  overflow: auto;
+}
+
+textarea:focus {
+  border: 2px solid var(--lightBlue);
+}
+
+input {
+  border-left: 1px solid var(--nearlyWhite);
+  border-right: 1px solid var(--nearlyWhite);
+  border-top: 1px solid var(--nearlyWhite);
+  border-bottom: 1px solid var(--lightBlue);
+}
+
+input:focus,
+input:active,
+input:hover {
+  border-bottom: 1px solid var(--darkBlue);
+  outline: none;
+}
+
+button {
+  margin: var(--defaultMargin);
+}
+
+select {
+  font-size: 1em;
+  margin: var(--defaultMargin);
+  outline: none;
+  border: 1px solid var(--lightBlue);
+}
+
+select:focus {
+  border: 2px solid var(--lightBlue);
+}
+
+.logoText {
+  font-family: 'Luckiest Guy', cursive;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.742);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.centerChildren {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.linkText {
+  text-decoration: underline;
+  color: var(--darkBlue);
+}
+
+.linkText:hover {
+  text-decoration: none;
+  color: var(--lightBlue);
+  cursor: pointer;
+  transition: color 0.1s;
+}
+.linkText:active {
+  text-decoration: underline;
+  color: var(--blue);
+}
+
+.errMsg {
+  color: var(--pink);
+  font-weight: bold;
+}
+
+.btn,
+.btn-danger {
+  padding: 12px;
+  padding-inline: 20px;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  font-size: 1em;
+  letter-spacing: 1px;
+  transition: all 0.1s;
+  border-color: white;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+.btn {
+  background-color: var(--darkestBlue);
+}
+
+.btn:hover {
+  background-color: var(--lightBlue);
+}
+
+.btn:active {
+  background-color: var(--darkBlue);
+  color: white;
+}
+
+.btn-danger {
+  background-color: var(--pink);
+}
+
+.btn-danger:hover {
+  background-color: rgb(130, 7, 62);
+  cursor: pointer;
+}
+
+.btn-danger:active {
+  background-color: red;
+}
+
+.fadeInOnLoad {
+  animation: 0.7s fadeIn;
+}
+
+.shimmer {
+  animation: 1.8s shimmer;
+  animation-delay: 0;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  color: var(--lightishBlue);
+  font-family: 'Russo One', sans-serif;
+  font-size: 2em;
+}
+
+.extraMargin {
+  margin: calc(var(--defaultMargin) * 3);
+}
+
+.clickable {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.clickable:hover {
+  opacity: 0.8;
+}
+
+.clickable:active {
+  opacity: 0.4;
+}
+
+.noSelect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently                                 supported by Chrome, Edge, Opera and Firefox */
+}
+
+.noDisplay {
+  display: none;
+}
+
+.spaceAround {
+  justify-content: space-around;
+}
+
+.flexStart {
+  justify-content: flex-start;
+}
+
+.baseline {
+  align-items: baseline;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.textNoWrap {
+  white-space: nowrap;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.4;
+  }
+}
+
+/*   // */
+/*   // */
+/*   // */
+/*   // */
+/*   // */
+/*   // */
+/*   // */
+/*   // */
+/*   // */
+
+.a1 {
+  font-family: 'Anton', sans-serif;
+}
+
+.a2 {
+  font-family: 'Kanit', sans-serif;
+}
+
+.a3 {
+  font-family: 'Luckiest Guy', cursive;
+}
+
+.a4 {
+  font-family: 'Russo One', sans-serif;
+}
+
+.a5 {
+  font-family: 'Passion One', cursive;
+}
+
+.a1,
+.a2,
+.a3,
+.a4,
+.a5 {
+  font-size: 2em;
+}

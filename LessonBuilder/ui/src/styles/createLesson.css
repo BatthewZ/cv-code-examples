@@ -1,0 +1,135 @@
+.editLesson {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile .editLesson .h1,
+.profile .editLesson .h2,
+.profile .editLesson .h3,
+.profile .editLesson .h4 {
+  color: var(--darkBlue);
+}
+
+.step {
+  border-bottom: 1px solid var(--palestBlue);
+  padding: var(--defaultMargin);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: red; */
+}
+
+.stepTitleRow {
+  min-width: 30vw;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  color: var(--darkestBlue);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sixtyBySixty {
+  height: 60px;
+  width: 60px;
+}
+
+.stepTitleColumn {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--lightBlue);
+  border-right: 1px solid var(--lightBlue);
+  padding-inline: 20px;
+  width: 100%;
+  margin-inline: var(--defaultMargin);
+}
+
+.stepPracticeTime {
+  font-weight: bold;
+}
+
+.closeButton {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  min-height: 29px;
+  max-height: 29px;
+  min-width: 29px;
+  max-width: 29px;
+  background-color: var(--blue);
+  top: -2px;
+  margin: 3px;
+  border-radius: 20px;
+}
+
+.closeButton:hover {
+  background-color: var(--darkBlue);
+  cursor: pointer;
+}
+
+.closeButton:active {
+  background-color: var(--lightBlue);
+}
+
+.x {
+  font-size: 1.2em;
+  font-family: 'Russo one', cursive;
+  color: white;
+  position: absolute;
+  top: 3px;
+  left: 8px;
+}
+
+.editableText {
+  /* text-decoration: underline; */
+  width: 45vw;
+  /* text-align: justify; */
+  color: var(--darkBlue);
+}
+
+.editableText:hover {
+  text-decoration: none;
+  color: var(--lightBlue);
+  cursor: pointer;
+  transition: color 0.1s;
+}
+.editableText:active {
+  text-decoration: underline;
+  color: var(--blue);
+}
+
+.lessonTypeSelect {
+  margin: 10px;
+  margin-top: 20px;
+}
+
+.stepImageSmall {
+  min-width: 100px;
+  max-width: 600px;
+  max-height: auto;
+  border: 1px solid var(--lightBlue);
+  border-radius: 15px;
+}
+
+.stepImageSmall:hover,
+.stepImageSmall:focus {
+  border: 2px solid var(--lightBlue);
+}
+
+.lessonPreview {
+  /* max-width: 50%; */
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  border: 1px solid var(--lightBlue);
+  border-radius: 30px;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  text-align: center;
+}

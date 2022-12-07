@@ -1,0 +1,158 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.row,
+.rowWrap {
+  display: flex;
+  flex-direction: row;
+}
+
+.rowWrap {
+  flex-wrap: wrap;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.centerChildren {
+  justify-content: center;
+  text-align: center;
+}
+
+.centerScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  /* background-color: red; */
+  text-align: center;
+}
+
+.baseline {
+  align-items: baseline;
+}
+
+.spaceEvenly {
+  justify-content: space-evenly;
+}
+
+.editableText {
+  text-decoration: underline;
+}
+
+.editableText:hover,
+.editableText:focus {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.weapon {
+  display: grid;
+  grid-template-areas:
+    'cell cell'
+    'cell cell'
+    'cell cell'
+    'cell cell';
+
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.weaponProp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 4px;
+  margin-inline: 8px;
+}
+
+.fadeInOnLoad {
+  animation: 0.7s fadeIn;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+input[type='radio'] + label {
+  padding: 10px;
+}
+
+input[type='radio'] + label:hover {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+input[type='radio']:checked + label {
+  background-color: black;
+  color: white;
+}
+
+input[type='radio'] + label:hover {
+  cursor: pointer;
+}
+
+.dice input[type='number'] {
+  max-width: 50px;
+}
+
+button {
+  margin: 3px;
+}
+
+.errMsg {
+  color: red;
+}
+
+.textLeft {
+  text-align: left;
+}
+.width75Percent {
+  min-width: 75vw;
+}
+
+.width90Percent {
+  width: 90%;
+}
+
+.notes {
+  padding: 20px;
+  text-align: left;
+}
+
+.notes:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.attribute {
+  min-height: 130px;
+  min-width: 130px;
+}
+
+td {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  margin-inline: 0px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

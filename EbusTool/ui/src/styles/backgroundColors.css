@@ -1,0 +1,76 @@
+.bg-skyBlue1 {
+  background-color: var(--skyBlue1);
+  color: white;
+}
+
+.bg-skyBlue2 {
+  background-color: var(--skyBlue2);
+  color: white;
+}
+
+.bg-deepBlue {
+  background-color: var(--deepBlue);
+  color: white;
+}
+
+.bg-pink {
+  background-color: var(--pink);
+  color: white;
+}
+
+.bg-paleBlue1 {
+  background-color: var(--paleBlue1);
+  color: white;
+}
+
+.bg-paleBlue2 {
+  background-color: var(--paleBlue2);
+  color: white;
+}
+
+.bg-greyBlue1 {
+  background-color: var(--greyBlue1);
+  color: white;
+}
+.bg-greyBlue2 {
+  background-color: var(--greyBlue2);
+  color: white;
+}
+.bg-nearlyWhite {
+  background-color: var(--nearlyWhite);
+  color: black;
+}
+
+.text-skyBlue1 {
+  color: var(--skyBlue1);
+}
+
+.text-skyBlue2 {
+  color: var(--skyBlue2);
+}
+
+.text-deepBlue {
+  color: var(--deepBlue);
+}
+
+.text-pink {
+  color: var(--pink);
+}
+
+.text-paleBlue1 {
+  color: var(--paleBlue1);
+}
+
+.text-paleBlue2 {
+  color: var(--paleBlue2);
+}
+
+.text-greyBlue1 {
+  color: var(--greyBlue1);
+}
+.text-greyBlue2 {
+  color: var(--greyBlue2);
+}
+.text-nearlyWhite {
+  color: var(--nearlyWhite);
+}

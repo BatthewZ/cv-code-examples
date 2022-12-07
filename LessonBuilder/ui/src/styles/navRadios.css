@@ -1,0 +1,60 @@
+.navHeader {
+  z-index: 1;
+  position: sticky;
+  background-color: var(--blue);
+  padding: 20px;
+  color: white;
+  padding-top: 30px;
+}
+
+.navBar {
+  background-color: var(--blue);
+  padding: 0px;
+  margin: 0px;
+}
+
+.navLink {
+  display: none;
+}
+
+.navLink + label {
+  /* width: 100%; */
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: white;
+  transition: all 0.3s, font-weight 0s;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: underline;
+}
+
+.navLink + label:hover {
+  color: white;
+  text-decoration: none;
+  background-color: var(--darkBlue);
+}
+
+.navLink:checked + label {
+  color: white;
+  background-color: var(--lightBlue);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navLink:checked + label:hover {
+  color: white;
+}
+
+.userName {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-weight: 300;
+}
+
+label > h4 {
+  color: white;
+}

@@ -1,0 +1,77 @@
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  height: 90vh;
+  /* background-color: red; */
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+  max-width: 400px;
+  min-height: 500px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid var(--palestBlue);
+  padding: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+.bgPanel {
+  /* 
+     BG Image Credit: https://unsplash.com/photos/uLitVttkC7o
+     Used for educational purposes only.
+   */
+  background: rgba(0, 0, 0, 0.253) url('../img/guitar.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+  color: white;
+}
+
+.panelInner {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  height: 100%;
+  justify-content: space-around;
+  margin-bottom: 10%;
+  text-align: center;
+}
+
+.darkBlurb {
+  text-align: justify;
+  background-color: rgba(0, 0, 0, 0.753);
+  color: white;
+  padding-inline: 10px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-top: 20px;
+  line-height: 1.5;
+}
+
+.darkBg {
+  color: white;
+}
+
+.darkLinkText {
+  opacity: 0.8;
+  margin-inline: 8%;
+  text-decoration: underline;
+}
+
+.darkLinkText:hover {
+  opacity: 1;
+  text-decoration: none;
+  cursor: pointer;
+  /* text-shadow: 0 0 2px white; */
+}
+
+.darkLinkText:active {
+  opacity: 0.4;
+}

@@ -1,0 +1,134 @@
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  letter-spacing: 1px;
+}
+
+button,
+input[type='button'],
+input[type='submit'] {
+  font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
+h2 {
+  font-size: calc(10px + 2vh);
+}
+
+h1 {
+  font-size: calc(15px + 2vh);
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+p {
+  font-size: calc(10px + 1.2vh);
+  font-weight: lighter;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 10px;
+}
+
+.customerInfo {
+  margin-top: 70px;
+}
+
+.receipt {
+  display: flex;
+  flex-direction: column;
+}
+
+.receiptInfo {
+  padding: 10px;
+}
+
+.companyInfo {
+  background-image: url('../../media/cinemalogoHeader.svg');
+  background-repeat: no-repeat;
+  background-size: 420px;
+  width: 420px;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.logoText {
+  font-family: 'Dancing Script', cursive;
+  font-size: 4.4em;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.tickets {
+  display: flex;
+  flex-direction: row;
+}
+
+.ticket {
+  background-image: url('../../media/cinemalogoHeader.svg');
+  background-position: -50px -50px;
+  background-repeat: no-repeat;
+  background-size: 350px;
+  border: 2px dashed hsla(195, 90%, 45%, 0.751);
+  width: 10.5cm;
+  height: 2.97cm;
+  display: flex;
+  flex-direction: row;
+}
+.ticketInfo {
+  width: 80%;
+  padding: 10px;
+}
+
+.scriptText {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2em;
+}
+
+.ticketAdmitOne {
+  text-align: center;
+  width: 2.97cm;
+  position: relative;
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+}
+
+/* Taken from Stack Overflow:  https://stackoverflow.com/questions/16649943/css-to-set-a4-paper-size*/
+page[size='A4'] {
+  background: white;
+  width: 21cm;
+  height: 29.7cm;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+}
+@media print {
+  body,
+  page[size='A4'] {
+    margin: 0;
+    box-shadow: 0;
+  }
+  page[size='A4'] {
+    page-break-after: always;
+  }
+  .ticket {
+    page-break-inside: avoid;
+  }
+
+  #debug {
+    display: none;
+  }
+}

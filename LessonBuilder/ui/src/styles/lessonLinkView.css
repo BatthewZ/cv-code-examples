@@ -1,0 +1,27 @@
+.lessonLinkView {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+}
+
+.lessonLinkViewNav {
+  background-color: var(--darkBlue);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.lessonLinkViewMain,
+.lessonLinkViewContent {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.lessonLinkViewMain {
+  padding-top: 20px;
+  background-color: white;
+  height: auto;
+}

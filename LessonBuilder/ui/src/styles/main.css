@@ -1,0 +1,44 @@
+.mainPage {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  /* background-color: var(--darkBlue); */
+
+  overflow-x: hidden;
+  /* overflow-x: hidden;
+  overflow-y: hidden; */
+}
+
+.mainOuter {
+  background-color: var(--darkBlue);
+  padding-top: 10px;
+  padding-left: 10px;
+  width: stretch;
+  height: stretch;
+  /* overflow-x: none; */
+}
+.mainContent {
+  background-color: white;
+  border-top-left-radius: 30px;
+  padding-top: 20px;
+  padding-inline: 20px;
+  width: stretch;
+  height: stretch;
+  overflow-y: auto;
+}
+
+.mainContent hr {
+  border-top: 1px solid var(--lightBlue);
+}
+
+.topNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.defaultMargin {
+  margin: var(--defaultMargin);
+}

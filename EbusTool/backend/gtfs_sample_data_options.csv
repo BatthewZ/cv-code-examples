@@ -1,0 +1,155 @@
+state,state_name,region_name,date_accessed,agency_id,agency_name,vehicle_types
+nsw,New South Wales,All,2019_12_06,700,train replacement bus operators,Bus
+nsw,New South Wales,All,2019_12_06,701,train replacement bus operators,Bus
+nsw,New South Wales,All,2019_12_06,2433,Busways Western Sydney,Bus
+nsw,New South Wales,All,2019_12_06,2434,Interline Bus Services,Bus
+nsw,New South Wales,All,2019_12_06,2435,Transit Systems,Bus
+nsw,New South Wales,All,2019_12_06,2436,Hillsbus,Bus
+nsw,New South Wales,All,2019_12_06,2437,Punchbowl Bus Company,Bus
+nsw,New South Wales,All,2019_12_06,S0318,Buslines Group,Bus
+nsw,New South Wales,All,2019_12_06,S0310,Kiama Coachlines,Bus
+nsw,New South Wales,All,2019_12_06,2439,State Transit,Bus
+nsw,New South Wales,All,2019_12_06,2440,State Transit,Bus
+nsw,New South Wales,All,2019_12_06,2441,State Transit,Bus
+nsw,New South Wales,All,2019_12_06,2442,Transdev NSW,Bus
+nsw,New South Wales,All,2019_12_06,2443,Transdev NSW,Bus
+nsw,New South Wales,All,2019_12_06,69,Dions Bus Service,Bus
+nsw,New South Wales,All,2019_12_06,75,Port Stephens Coaches,Bus
+nsw,New South Wales,All,2019_12_06,TRDV,Transdev,Bus
+nsw,New South Wales,All,2019_12_06,2444,Transdev NSW,Bus
+nsw,New South Wales,All,2019_12_06,2445,Forest Coach Lines,Bus
+nsw,New South Wales,All,2019_12_06,304,Church Point Ferry Service,Ferry
+nsw,New South Wales,All,2019_12_06,301,Palm Beach Ferry Service,Ferry
+nsw,New South Wales,All,2019_12_06,305,Captain Cook Cruises,Ferry
+nsw,New South Wales,All,2019_12_06,306,Manly Fast Ferry,Ferry
+nsw,New South Wales,All,2019_12_06,300,Cronulla Ferries,Ferry
+nsw,New South Wales,All,2019_12_06,302,Brooklyn Ferry Service,Ferry
+nsw,New South Wales,All,2019_12_06,303,Central Coast Ferries,Ferry
+nsw,New South Wales,All,2019_12_06,CRF,Clarence River Ferries,Ferry
+nsw,New South Wales,All,2019_12_06,2446,Busabout,Bus
+nsw,New South Wales,All,2019_12_06,2447,Rover Coaches,Bus
+nsw,New South Wales,All,2019_12_06,2448,Hunter Valley Buses,Bus
+nsw,New South Wales,All,2019_12_06,2449,Port Stephens Coaches,Bus
+nsw,New South Wales,All,2019_12_06,2450,Hunter Valley Buses,Bus
+nsw,New South Wales,All,2019_12_06,B011,Tamworth Buslines,Bus
+nsw,New South Wales,All,2019_12_06,B047,Northern Rivers Buslines,Bus
+nsw,New South Wales,All,2019_12_06,B012,Ogden's Coaches ,Bus
+nsw,New South Wales,All,2019_12_06,B062,Waller's Bus Company,Bus
+nsw,New South Wales,All,2019_12_06,B052,Forest Coach Lines,Bus
+nsw,New South Wales,All,2019_12_06,B055,Lawrence Bus Service,Bus
+nsw,New South Wales,All,2019_12_06,B082,Ballina Buslines,Bus
+nsw,New South Wales,All,2019_12_06,B041,Inverell Bus Service,Bus
+nsw,New South Wales,All,2019_12_06,B010,Hannafords Bus Service,Bus
+nsw,New South Wales,All,2019_12_06,B066,Eggins Comfort Coaches,Bus
+nsw,New South Wales,All,2019_12_06,B061,Surfside Buslines,Bus
+nsw,New South Wales,All,2019_12_06,B040,Edwards Coaches,Bus
+nsw,New South Wales,All,2019_12_06,B053,Watson's Bus Service ,Bus
+nsw,New South Wales,All,2019_12_06,B073,Busways Port Macquarie,Bus
+nsw,New South Wales,All,2019_12_06,B065,Cavanaghs Bus Company,Bus
+nsw,New South Wales,All,2019_12_06,B067,Forster Buslines,Bus
+nsw,New South Wales,All,2019_12_06,B054,Casino Bus Service ,Bus
+nsw,New South Wales,All,2019_12_06,B058,Parsons Bus Service ,Bus
+nsw,New South Wales,All,2019_12_06,B057,Forest Coach Lines,Bus
+nsw,New South Wales,All,2019_12_06,B013,Osborn Bus Service ,Bus
+nsw,New South Wales,All,2019_12_06,B086,Gosel's Bus Service,Bus
+nsw,New South Wales,All,2019_12_06,WHC,Wingham Buslines,Bus
+nsw,New South Wales,All,2019_12_06,B048,Blanch's Bus Company,Bus
+nsw,New South Wales,All,2019_12_06,B004,Hopes Bus Service,Bus
+nsw,New South Wales,All,2019_12_06,B060,Dunoon Bus Service,Bus
+nsw,New South Wales,All,2019_12_06,B083,Premier Motor Service,Bus
+nsw,New South Wales,All,2019_12_06,B050,Bhangla Singh's Bus Service,Bus
+nsw,New South Wales,All,2019_12_06,B005,Forest Coach Lines,Bus
+nsw,New South Wales,All,2019_12_06,B085,Michael Jillett,Bus
+nsw,New South Wales,All,2019_12_06,B056,Murwillumbah Bus Company ,Bus
+nsw,New South Wales,All,2019_12_06,B001,Millerds Bus Service,Bus
+nsw,New South Wales,All,2019_12_06,B084,Symes Coaches,Bus
+nsw,New South Wales,All,2019_12_06,B072,Busways Great Lakes,Bus
+nsw,New South Wales,All,2019_12_06,B069,Tinonee Bus Company,Bus
+nsw,New South Wales,All,2019_12_06,B059,Quinns Coaches,Bus
+nsw,New South Wales,All,2019_12_06,BVC,Brunswick Valley Coaches,Bus
+nsw,New South Wales,All,2019_12_06,2452,Busways Central Coast,Bus
+nsw,New South Wales,All,2019_12_06,2453,Red Bus Service,Bus
+nsw,New South Wales,All,2019_12_06,2454,Blue Mountains Transit,Bus
+nsw,New South Wales,All,2019_12_06,2455,Premier Charters,Bus
+nsw,New South Wales,All,2019_12_06,2456,Premier Illawarra,Bus
+nsw,New South Wales,All,2019_12_06,2457,Hunter Valley Buses,Bus
+nsw,New South Wales,All,2019_12_06,y,Busways Grafton,Bus
+nsw,New South Wales,All,2019_12_06,f,Busways Coffs Harbour,Bus
+nsw,New South Wales,All,2019_12_06,2458,Dions Bus Service,Bus
+nsw,New South Wales,All,2019_12_06,3000,Newcastle Transport,"Bus, Ferry"
+nsw,New South Wales,All,2019_12_06,2459,Transit Systems,Bus
+nsw,New South Wales,All,2019_12_06,710,NSW TrainLink Coach,Bus
+nsw,New South Wales,All,2019_12_06,B044,Junee Buses,Bus
+nsw,New South Wales,All,2019_12_06,B014,Dubbo Buslines,Bus
+nsw,New South Wales,All,2019_12_06,B021,Orange Buslines,Bus
+nsw,New South Wales,All,2019_12_06,B007,Griffith Buslines,Bus
+nsw,New South Wales,All,2019_12_06,B045,Busabout Wagga,Bus
+nsw,New South Wales,All,2019_12_06,B078,PBC Goulburn,Bus
+nsw,New South Wales,All,2019_12_06,B043,Dysons ,Bus
+nsw,New South Wales,All,2019_12_06,B034,Sapphire Coast Buslines,Bus
+nsw,New South Wales,All,2019_12_06,B031,Priors Bus Service,Bus
+nsw,New South Wales,All,2019_12_06,B039,Western Road Liners,Bus
+nsw,New South Wales,All,2019_12_06,B015,Allen's Coaches,Bus
+nsw,New South Wales,All,2019_12_06,B042,Martins Albury,Bus
+nsw,New South Wales,All,2019_12_06,B009,Buslink Sunraysia,Bus
+nsw,New South Wales,All,2019_12_06,B037,Cowra Bus Service,Bus
+nsw,New South Wales,All,2019_12_06,B024,Buslink Broken Hill,Bus
+nsw,New South Wales,All,2019_12_06,B008,Purtills,Bus
+nsw,New South Wales,All,2019_12_06,B075,Cooma Coaches,Bus
+nsw,New South Wales,All,2019_12_06,B076,Qcity Transit,Bus
+nsw,New South Wales,All,2019_12_06,B018,Newman's Bus Service,Bus
+nsw,New South Wales,All,2019_12_06,B020,Cann's Buslines,Bus
+nsw,New South Wales,All,2019_12_06,B077,Transborder Express,Bus
+nsw,New South Wales,All,2019_12_06,B038,Forbes Buslines,Bus
+nsw,New South Wales,All,2019_12_06,B033,Sapphire Coast Buslines,Bus
+nsw,New South Wales,All,2019_12_06,B036,Symons Bus & Coach Service,Bus
+nsw,New South Wales,All,2019_12_06,B079,Murrays Coaches,Bus
+nsw,New South Wales,All,2019_12_06,B081,PBC Crookwell,Bus
+nsw,New South Wales,All,2019_12_06,B025,Premier Motor Service,Bus
+nsw,New South Wales,All,2019_12_06,74,Picton Buslines,Bus
+nsw,New South Wales,All,2019_12_06,123,Bathurst Buslines,Bus
+nsw,New South Wales,All,2019_12_06,122,Lithgow Buslines,Bus
+nsw,New South Wales,All,2019_12_06,79,Berrima Buslines,Bus
+nsw,New South Wales,All,2019_12_06,B003,Newtons Bus Service,Bus
+nsw,New South Wales,All,2019_12_06,82,Nowra Coaches,Bus
+nsw,New South Wales,All,2019_12_06,121,Shoal Bus,Bus
+nsw,New South Wales,All,2019_12_06,88,Kennedys Bus Service,Bus
+nsw,New South Wales,All,2019_12_06,89,Stuarts Coaches,Bus
+nsw,New South Wales,All,2019_12_06,112,Sydney Ferries,Ferry
+qld,Queensland,Cairns,2022_11_24,Sunbus Cairns,http://www.sunbus.com.au/,Bus
+qld,Queensland,Gladstone,2022_11_24,Buslink Gladstone,https://buslink.com.au/,Bus
+qld,Queensland,Gympie,2022_11_24,Polleys Coaches,https://www.polleys.com.au/,Bus
+wa,Western Australia,All,2022_10_21,CRS-CAR,TransCarnarvon,Bus
+wa,Western Australia,All,2022_10_21,EBS-EBS,TransEsperance,Bus
+wa,Western Australia,All,2022_10_21,GWB-KAR,TransKarratha,Bus
+wa,Western Australia,All,2022_10_21,PAT-CIR,Transperth,Bus
+wa,Western Australia,All,2022_10_21,PAT-KAL,Transperth,Bus
+wa,Western Australia,All,2022_10_21,PAT-MOR,Transperth,Bus
+wa,Western Australia,All,2022_10_21,PAT-RRP,Transperth,Bus
+wa,Western Australia,All,2022_10_21,PAT-SES,Transperth,Bus
+wa,Western Australia,All,2022_10_21,PHN-PTH,TransHedland,Bus
+wa,Western Australia,All,2022_10_21,PTR-GDN,TransGeraldton,Bus
+wa,Western Australia,All,2022_10_21,PWT-FRY,Transperth,Ferry
+wa,Western Australia,All,2022_10_21,SCT-CIR,Transperth,Bus
+wa,Western Australia,All,2022_10_21,SCT-FCA,Transperth,Bus
+wa,Western Australia,All,2022_10_21,SCT-FRE,Transperth,Bus
+wa,Western Australia,All,2022_10_21,SCT-PCA,Transperth,Bus
+wa,Western Australia,All,2022_10_21,SCT-ROC,Transperth,Bus
+wa,Western Australia,All,2022_10_21,SCT-RRP,Transperth,Bus
+wa,Western Australia,All,2022_10_21,SCT-SES,Transperth,Bus
+wa,Western Australia,All,2022_10_21,STR-ALB,TransAlbany,Bus
+wa,Western Australia,All,2022_10_21,STR-BBY,TransBunbury,Bus
+wa,Western Australia,All,2022_10_21,STR-BSN,TransBusselton,Bus
+wa,Western Australia,All,2022_10_21,STR-KLG,TransGoldfields,Bus
+wa,Western Australia,All,2022_10_21,SWA-CAN,Transperth,Bus
+wa,Western Australia,All,2022_10_21,SWA-CIR,Transperth,Bus
+wa,Western Australia,All,2022_10_21,SWA-CLA,Transperth,Bus
+wa,Western Australia,All,2022_10_21,SWA-JCA,Transperth,Bus
+wa,Western Australia,All,2022_10_21,SWA-JOO,Transperth,Bus
+wa,Western Australia,All,2022_10_21,SWA-MAR,Transperth,Bus
+wa,Western Australia,All,2022_10_21,SWA-MID,Transperth,Bus
+wa,Western Australia,All,2022_10_21,SWA-MSH,Transperth,Bus
+wa,Western Australia,All,2022_10_21,SWA-RRP,Transperth,Bus
+wa,Western Australia,All,2022_10_21,SWA-SES,Transperth,Bus
+wa,Western Australia,All,2022_10_21,SWA-SRI,Transperth,Bus
+wa,Western Australia,All,2022_10_21,TRA-TRA,Transwa,Bus
