@@ -1,9 +1,9 @@
-# WELCOME TO MY CV!
+# WELCOME TO MY CV
 
 Here is a brief description of each of these projects:
 
 ### Ebus Tool (WIP)
-A project for the University of New South Wales, working with Katelyn Purnell to develop her estimation tool for estimating energy requirements of electric vehicles for public transport in Australia (Read more here: https://doi.org/10.1016/j.apenergy.2021.118272).  The project will be open source, but for the moment I do not have permission to share the full project publically. But, here is the UI and the interfacing server.
+A project for the University of New South Wales, working with Katelyn Purnell to develop her estimation tool for estimating energy requirements of electric vehicles for public transport in Australia (Read more here: https://doi.org/10.1016/j.apenergy.2021.118272).  The project will be open source, but for the moment I do not have permission to share the full project publically. But, here is the UI and the interfacing server.  This UI has limited repsonsivity, as it is only ever intended to be run locally on computers, and never on tablets/phones.  Some of the calculations that the full app performs can take hours due to large data sets.
 
 ### Google Apps Invoicer
 A script I built to assist me with invoicing my private piano students. Built to be used with Google Sheets.
@@ -39,6 +39,7 @@ Web Development Technologies University Assignment - C# MVC/MVVM project using A
 
 ### Lunardo Cinema
 Web Programming University Assignment - HTML, CSS, Javascript, PHP
+- Live link: https://titan.csit.rmit.edu.au/~s3851558/wp/a4/
 - Highly stylised Responsive webpage with contrasting sections, driven primarily by HTML and CSS.
 - Clientside and serverside validation of user input data
 - Uses session data, POST/GET HTTP form methods
