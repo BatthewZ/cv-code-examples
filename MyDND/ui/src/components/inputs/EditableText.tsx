@@ -65,24 +65,28 @@ export const EditableText: React.FC<EditableTextProps> = ({
             </div>
           )}
           <div className='column centerChildren'>
-            <button
-              className='btn'
-              onClick={() => {
-                confirmEdit(textState);
-                toggleEditMode();
-              }}
-            >
-              Update
-            </button>
-            <button
-              className='btn'
-              onClick={() => {
-                setTextState(value);
-                toggleEditMode();
-              }}
-            >
-              Cancel
-            </button>
+            <div>
+              <button
+                className='btn'
+                onClick={() => {
+                  confirmEdit(textState);
+                  toggleEditMode();
+                }}
+              >
+                Update
+              </button>
+            </div>
+            <div>
+              <button
+                className='btn'
+                onClick={() => {
+                  setTextState(value);
+                  toggleEditMode();
+                }}
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         </>
       ) : (

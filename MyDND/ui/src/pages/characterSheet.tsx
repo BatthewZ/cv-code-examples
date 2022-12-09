@@ -410,19 +410,50 @@ export const CharacterSheet: React.FC<CharSheetProps> = ({character, toCharacter
         <>
           <div className='combatStats column centerChildren fadeInOnLoad'>
             <fieldset className='row spaceEvenly'>
-              <EditableText fieldName={'ac'} value={ac + ''} confirmEdit={setAc} title={'Armour Class'} />
+              <EditableText
+                fieldName={'ac'}
+                value={ac + ''}
+                confirmEdit={setAc}
+                title={'Armour Class'}
+                inputType='number'
+              />
               <EditableText
                 fieldName={'initiative'}
                 value={initiative + ''}
                 confirmEdit={setInitiative}
                 title={'Initiative'}
+                inputType='number'
               />
-              <EditableText fieldName={'speed'} value={speed + ''} confirmEdit={setSpeed} title={'Speed'} />
+              <EditableText
+                fieldName={'speed'}
+                value={speed + ''}
+                confirmEdit={setSpeed}
+                title={'Speed'}
+                inputType='number'
+              />
             </fieldset>
             <fieldset className='row spaceEvenly'>
-              <EditableText fieldName={'hpMax'} value={hpMax + ''} confirmEdit={setHpmax} title={'Max HP'} />
-              <EditableText fieldName={'hpCurr'} value={hpCurr + ''} confirmEdit={setHpcurr} title={'Current HP'} />
-              <EditableText fieldName={'tempHp'} value={tempHp + ''} confirmEdit={setTemphp} title={'Temporary HP'} />
+              <EditableText
+                fieldName={'hpMax'}
+                value={hpMax + ''}
+                confirmEdit={setHpmax}
+                title={'Max HP'}
+                inputType='number'
+              />
+              <EditableText
+                fieldName={'hpCurr'}
+                value={hpCurr + ''}
+                confirmEdit={setHpcurr}
+                title={'Current HP'}
+                inputType='number'
+              />
+              <EditableText
+                fieldName={'tempHp'}
+                value={tempHp + ''}
+                confirmEdit={setTemphp}
+                title={'Temporary HP'}
+                inputType='number'
+              />
               {/* <EditableText fieldName={'hitDie'} value={hitDie + ''} confirmEdit={setHitdie} title={'Hit Die'} /> */}
               <Dice
                 title='Hit Die'
@@ -454,6 +485,7 @@ export const CharacterSheet: React.FC<CharSheetProps> = ({character, toCharacter
                 attacksOrSpells={attacksAndSpells}
                 refreshView={refreshAttackOrSpellsArray}
                 deleteAttack={deleteAttackOrSpell}
+                setDiceModal={updateModal}
               />
               <p>
                 <button onClick={addAttackOrSpell}>Add Attack/Spell</button>

@@ -1,6 +1,49 @@
+/* FONTS: 
+
+font-family: 'Acme', sans-serif;
+font-family: 'Antic Slab', serif;
+font-family: 'Roboto', sans-serif;
+
+*/
+
 html {
   height: 100%;
   width: 100%;
+}
+html,
+p,
+input,
+button {
+  font-family: 'Antic Slab', serif;
+}
+
+button {
+  /* font-weight: bold; */
+  padding: 7px;
+  padding-inline: 10px;
+  background-color: hsl(173, 89%, 32%);
+  color: white;
+  transition: 0.2s all;
+  border: 1px solid rgba(0, 255, 195, 0.203);
+  border-radius: 3px;
+}
+
+button:hover {
+  background-color: black;
+}
+
+button:active {
+  background-color: hsl(173, 89%, 32%);
+  border: 1px solid hsl(168, 100%, 91%);
+}
+
+h1,
+h2,
+h3,
+h4,
+strong,
+th {
+  font-family: 'Acme', sans-serif;
 }
 
 .appContainer {

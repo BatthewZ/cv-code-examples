@@ -5,12 +5,14 @@ type MappedAttacksProps = {
   attacksOrSpells: AttackOrSpellType[];
   refreshView: Function;
   deleteAttack: Function;
+  setDiceModal: Function;
 };
 
 export const MappedAttacksOrSpells: React.FC<MappedAttacksProps> = ({
   attacksOrSpells,
   refreshView,
   deleteAttack,
+  setDiceModal,
 }: MappedAttacksProps) => {
   function mapAttacks() {
     return attacksOrSpells.map((attack) => {
@@ -20,6 +22,7 @@ export const MappedAttacksOrSpells: React.FC<MappedAttacksProps> = ({
           refreshAttacksView={refreshView}
           deleteItem={deleteAttack}
           attackOrSpell={attack}
+          setDiceModal={setDiceModal}
         />
       );
     });

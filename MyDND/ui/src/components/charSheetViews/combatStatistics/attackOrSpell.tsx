@@ -3,22 +3,25 @@ import {rollDamage} from '../../../helper/rollDamage';
 import {AttackOrSpellType, DiceType} from '../../../types/types';
 import {Dice} from '../../inputs/dice';
 import {EditableText} from '../../inputs/EditableText';
+import {DiceRollView} from '../../miscUI/diceRollView';
 
 type AttackOrSpellProps = {
   refreshAttacksView: Function;
   deleteItem: Function;
   attackOrSpell: AttackOrSpellType;
+  setDiceModal: Function;
 };
 
 export const AttackOrSpell: React.FC<AttackOrSpellProps> = ({
   attackOrSpell,
   refreshAttacksView,
   deleteItem,
+  setDiceModal,
 }: AttackOrSpellProps) => {
   const [name, setName] = useState(attackOrSpell.name);
   const [description, setDescription] = useState(attackOrSpell.description);
   const [baseDmg, setBaseDmg] = useState(attackOrSpell.dmg.numOfDice + 'd' + attackOrSpell.dmg.typeOfDice);
-  const [bonusDmg, setBonusDmg] = useState('' + attackOrSpell.dmg.dmgMod);
+  const [damageModifier, setDamageModifier] = useState('' + attackOrSpell.dmg.dmgMod);
   const [dmgType, setDmgType] = useState(attackOrSpell.dmg.type);
   const [delButtonView, setDelButtonView] = useState(delButton());
 
@@ -30,12 +33,12 @@ export const AttackOrSpell: React.FC<AttackOrSpellProps> = ({
     attackOrSpell.dmg.typeOfDice = +baseDmg.split('d')[1] as DiceType;
   }, [baseDmg]);
   useEffect(() => {
-    attackOrSpell.dmg.dmgMod = +bonusDmg;
-  }, [bonusDmg]);
+    attackOrSpell.dmg.dmgMod = +damageModifier;
+  }, [damageModifier]);
 
   useEffect(() => {
     refreshAttacksView();
-  }, [name, baseDmg, bonusDmg, description]);
+  }, [name, baseDmg, damageModifier, description]);
 
   function confirmButtons() {
     return (
@@ -66,7 +69,7 @@ export const AttackOrSpell: React.FC<AttackOrSpellProps> = ({
           inputType='textarea'
           value={description}
           confirmEdit={(e: string) => setDescription(e)}
-          className='textLeft editableText'
+          className='notes'
         />
       </div>
       <div className='column'>
@@ -80,9 +83,9 @@ export const AttackOrSpell: React.FC<AttackOrSpellProps> = ({
           inputType='number'
           title='Damage Modifier'
           fieldName={'bonusDmg'}
-          value={bonusDmg}
+          value={damageModifier}
           confirmEdit={(e: string) => {
-            setBonusDmg(e);
+            setDamageModifier(e);
           }}
         />
         <EditableText
@@ -95,7 +98,12 @@ export const AttackOrSpell: React.FC<AttackOrSpellProps> = ({
         />
         <button
           onClick={() => {
-            alert(rollDamage(attackOrSpell.dmg.numOfDice, attackOrSpell.dmg.typeOfDice, attackOrSpell.dmg.dmgMod).log);
+            setDiceModal(
+              true,
+              <DiceRollView
+                dmgRoll={rollDamage(attackOrSpell.dmg.numOfDice, attackOrSpell.dmg.typeOfDice, +damageModifier)}
+              />
+            );
           }}
         >
           Roll Damage
