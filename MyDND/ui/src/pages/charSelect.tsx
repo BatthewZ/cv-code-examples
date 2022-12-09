@@ -32,19 +32,22 @@ export const CharacterSelect: React.FC<CharSelectProps> = ({chooseChar, logout}:
     <div className='centerScreen fadeInOnLoad'>
       <LoadingModal content={<h1>'Loading Characters...'</h1>} isActive={modalIsOpen} />
       <h2>{('Welcome ' + sessionStorage.getItem('user')).toUpperCase()}</h2>
-      <h3>Character Select: </h3>
+
       {characters.length ? (
-        <div className='fadeInOnLoad'>
-          <table className='width75Percent'>
-            <tr>
-              <th>Character Name</th>
-              <th>Race</th>
-              <th>Class</th>
-              <th>Level</th>
-            </tr>
-            <MappedCharacters chooseChar={chooseChar} characters={characters} />
-          </table>
-        </div>
+        <>
+          <h3>Character Select: </h3>
+          <div className='fadeInOnLoad'>
+            <table className='width75Percent'>
+              <tr>
+                <th>Character Name</th>
+                <th>Race</th>
+                <th>Class</th>
+                <th>Level</th>
+              </tr>
+              <MappedCharacters chooseChar={chooseChar} characters={characters} />
+            </table>
+          </div>
+        </>
       ) : (
         ''
       )}

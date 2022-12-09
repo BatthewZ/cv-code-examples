@@ -32,7 +32,7 @@ function App() {
   }
 
   return (
-    <div className=''>
+    <div className='appContainer'>
       <LoadingModal content={'Yay'} isActive={modalOpen} closeButton={() => setModalOpen(false)} />
       {content}
     </div>

@@ -8,6 +8,7 @@ type EditableTextProps = {
   inputType?: 'text' | 'textarea' | 'number';
   className?: string;
   title?: string;
+  placeholder?: string;
 };
 
 export const EditableText: React.FC<EditableTextProps> = ({
@@ -17,6 +18,7 @@ export const EditableText: React.FC<EditableTextProps> = ({
   inputType = 'text',
   className = 'editableText',
   title,
+  placeholder,
 }: EditableTextProps) => {
   const [viewEditField, setViewEditField] = useState(false);
   const [textState, setTextState] = useState(value);
@@ -49,18 +51,20 @@ export const EditableText: React.FC<EditableTextProps> = ({
               }}
             ></textarea>
           ) : (
-            <input
-              type={inputType}
-              defaultValue={value}
-              name={fieldName}
-              onChange={(e) => setTextState(e.target.value && e.target.value.trim() ? e.target.value : '')}
-              placeholder={capitalizeAllFirstLetters(title ?? fieldName)}
-              onKeyDown={(e) => {
-                if (e.key === 'Escape') toggleEditMode();
-              }}
-            />
+            <div className='row centerChildren'>
+              <input
+                type={inputType}
+                defaultValue={value}
+                name={fieldName}
+                onChange={(e) => setTextState(e.target.value && e.target.value.trim() ? e.target.value : '')}
+                placeholder={placeholder ? placeholder : capitalizeAllFirstLetters(title ?? fieldName)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Escape') toggleEditMode();
+                }}
+              />
+            </div>
           )}
-          <div className='row centerChildren'>
+          <div className='column centerChildren'>
             <button
               className='btn'
               onClick={() => {

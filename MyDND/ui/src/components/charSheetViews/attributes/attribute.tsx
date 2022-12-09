@@ -40,6 +40,7 @@ export const Attribute: React.FC<AttributeProps> = ({name, updateState, value}: 
             updateState(val);
             setModifier(calcModifier(val));
           }}
+          placeholder=' '
         />
         Modifier: {modifier}
       </fieldset>

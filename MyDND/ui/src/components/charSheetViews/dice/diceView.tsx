@@ -1,8 +1,13 @@
 import {useState} from 'react';
 import {rollDamage} from '../../../helper/rollDamage';
 import {DiceType} from '../../../types/types';
+import {DiceRollView} from '../../miscUI/diceRollView';
 
-export const DiceView: React.FC = () => {
+type DiceViewProps = {
+  setDiceModal: Function;
+};
+
+export const DiceView: React.FC<DiceViewProps> = ({setDiceModal}: DiceViewProps) => {
   const [numOfDice, setNumOfDice] = useState(1);
   const [diceType, setDiceType] = useState<DiceType>(6);
 
@@ -74,7 +79,13 @@ export const DiceView: React.FC = () => {
       <h3>Dice Type</h3>
       <div className='rowWrap centerChildren'>{getDiceTypeButtons()}</div>
       <p></p>
-      <button onClick={() => alert(rollDamage(numOfDice, diceType).log)}>Roll</button>
+      <button
+        onClick={() => {
+          setDiceModal(true, <DiceRollView dmgRoll={rollDamage(numOfDice, diceType)} />);
+        }}
+      >
+        Roll
+      </button>
     </div>
   );
 };

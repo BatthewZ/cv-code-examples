@@ -476,7 +476,7 @@ export const CharacterSheet: React.FC<CharSheetProps> = ({character, toCharacter
       ) : (
         ''
       )}
-      {view === 'Dice' ? <DiceView /> : ''}
+      {view === 'Dice' ? <DiceView setDiceModal={updateModal} /> : ''}
       {view === 'Notes' ? (
         <div className='column fadeInOnLoad'>
           <EditableText fieldName={''} value={notes} confirmEdit={setNotes} className='notes' inputType='textarea' />

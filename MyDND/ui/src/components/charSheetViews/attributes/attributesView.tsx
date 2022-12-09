@@ -46,12 +46,10 @@ export const AttributesView: React.FC<ViewProps> = (props) => {
   } = props;
   return (
     <div className='column centerChildren fadeInOnLoad'>
-      <div className='attributes row spaceEvenly'>
+      <div className='attributes rowWrap spaceEvenly'>
         <Attribute updateState={setStrength} value={strength} name={'Strength'} />
         <Attribute updateState={setDexterity} value={dexterity} name={'Dexterity'} />
         <Attribute updateState={setConstitution} value={constitution} name={'Constitution'} />
-      </div>
-      <div className='attributes row spaceEvenly'>
         <Attribute updateState={setIntelligence} value={intelligence} name={'Intelligence'} />
         <Attribute updateState={setWisdom} value={wisdom} name={'Wisdom'} />
         <Attribute updateState={setCharisma} value={charisma} name={'Charisma'} />
@@ -60,78 +58,7 @@ export const AttributesView: React.FC<ViewProps> = (props) => {
         <hr />
       </div>
 
-      <div className='column'>
-        {/* Proficiency */}
-        <div className='row centerChildren'>
-          <fieldset className='column'>
-            <legend>
-              <strong>Proficiency</strong>
-            </legend>
-            <EditableText
-              inputType='number'
-              fieldName={'proficiency'}
-              value={proficiencyBonus + ''}
-              confirmEdit={setProficiencyBonus}
-              title={''}
-            />
-          </fieldset>
-        </div>
-        {/* Saving Throws */}
-        <div className='row centerChildren'>
-          <fieldset className='column'>
-            <legend>
-              <strong>Saving Throws</strong>
-            </legend>
-            <Skill
-              title={'Strength'}
-              attribute={'Strength'}
-              value={calcModifier(strength)}
-              profBonus={proficiencyBonus}
-              updateProficiencies={(title: string) => updateSkillProfs(title, 'savingThrow')}
-              defaultChecked={savingThrowProfs['Strength']}
-            />
-            <Skill
-              title={'Dexterity'}
-              attribute={'Dexterity'}
-              value={calcModifier(dexterity)}
-              profBonus={proficiencyBonus}
-              updateProficiencies={(title: string) => updateSkillProfs(title, 'savingThrow')}
-              defaultChecked={savingThrowProfs['Dexterity']}
-            />
-            <Skill
-              title={'Constitution'}
-              attribute={'Constitution'}
-              value={calcModifier(constitution)}
-              profBonus={proficiencyBonus}
-              updateProficiencies={(title: string) => updateSkillProfs(title, 'savingThrow')}
-              defaultChecked={savingThrowProfs['Constitution']}
-            />
-            <Skill
-              title={'Intelligence'}
-              attribute={'Intelligence'}
-              value={calcModifier(intelligence)}
-              profBonus={proficiencyBonus}
-              updateProficiencies={(title: string) => updateSkillProfs(title, 'savingThrow')}
-              defaultChecked={savingThrowProfs['Intelligence']}
-            />
-            <Skill
-              title={'Wisdom'}
-              attribute={'Wisdom'}
-              value={calcModifier(wisdom)}
-              profBonus={proficiencyBonus}
-              updateProficiencies={(title: string) => updateSkillProfs(title, 'savingThrow')}
-              defaultChecked={savingThrowProfs['Wisdom']}
-            />
-            <Skill
-              title={'Charisma'}
-              attribute={'Charisma'}
-              value={calcModifier(strength)}
-              profBonus={proficiencyBonus}
-              updateProficiencies={(title: string) => updateSkillProfs(title, 'savingThrow')}
-              defaultChecked={savingThrowProfs['Charisma']}
-            />
-          </fieldset>
-        </div>
+      <div className='rowWrap centerChildren'>
         {/* Skills */}
         <div className='row centerChildren'>
           <fieldset className='column centerChildren'>
@@ -150,6 +77,81 @@ export const AttributesView: React.FC<ViewProps> = (props) => {
               updateProficiencies={(title: string) => updateSkillProfs(title, 'skill')}
             />
           </fieldset>
+        </div>
+        <div className='column'>
+          {/* Proficiency */}
+
+          <fieldset className='column'>
+            <legend>
+              <strong>Proficiency</strong>
+            </legend>
+            <EditableText
+              inputType='number'
+              fieldName={'proficiency'}
+              value={proficiencyBonus + ''}
+              confirmEdit={setProficiencyBonus}
+              title={''}
+            />
+          </fieldset>
+
+          {/* Saving Throws */}
+          <div className='row centerChildren'>
+            <div>
+              <fieldset className='column'>
+                <legend>
+                  <strong>Saving Throws</strong>
+                </legend>
+                <Skill
+                  title={'Strength'}
+                  attribute={'Strength'}
+                  value={calcModifier(strength)}
+                  profBonus={proficiencyBonus}
+                  updateProficiencies={(title: string) => updateSkillProfs(title, 'savingThrow')}
+                  defaultChecked={savingThrowProfs['Strength']}
+                />
+                <Skill
+                  title={'Dexterity'}
+                  attribute={'Dexterity'}
+                  value={calcModifier(dexterity)}
+                  profBonus={proficiencyBonus}
+                  updateProficiencies={(title: string) => updateSkillProfs(title, 'savingThrow')}
+                  defaultChecked={savingThrowProfs['Dexterity']}
+                />
+                <Skill
+                  title={'Constitution'}
+                  attribute={'Constitution'}
+                  value={calcModifier(constitution)}
+                  profBonus={proficiencyBonus}
+                  updateProficiencies={(title: string) => updateSkillProfs(title, 'savingThrow')}
+                  defaultChecked={savingThrowProfs['Constitution']}
+                />
+                <Skill
+                  title={'Intelligence'}
+                  attribute={'Intelligence'}
+                  value={calcModifier(intelligence)}
+                  profBonus={proficiencyBonus}
+                  updateProficiencies={(title: string) => updateSkillProfs(title, 'savingThrow')}
+                  defaultChecked={savingThrowProfs['Intelligence']}
+                />
+                <Skill
+                  title={'Wisdom'}
+                  attribute={'Wisdom'}
+                  value={calcModifier(wisdom)}
+                  profBonus={proficiencyBonus}
+                  updateProficiencies={(title: string) => updateSkillProfs(title, 'savingThrow')}
+                  defaultChecked={savingThrowProfs['Wisdom']}
+                />
+                <Skill
+                  title={'Charisma'}
+                  attribute={'Charisma'}
+                  value={calcModifier(strength)}
+                  profBonus={proficiencyBonus}
+                  updateProficiencies={(title: string) => updateSkillProfs(title, 'savingThrow')}
+                  defaultChecked={savingThrowProfs['Charisma']}
+                />
+              </fieldset>
+            </div>
+          </div>
         </div>
       </div>
     </div>

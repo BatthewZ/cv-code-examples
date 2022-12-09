@@ -3,6 +3,12 @@ html {
   width: 100%;
 }
 
+.appContainer {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+}
+
 .App {
   text-align: center;
   display: flex;
@@ -141,6 +147,10 @@ button {
 .attribute {
   min-height: 130px;
   min-width: 130px;
+}
+
+.attribute input {
+  max-width: 4em;
 }
 
 td {
