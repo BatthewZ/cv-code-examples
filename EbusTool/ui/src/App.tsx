@@ -11,35 +11,45 @@ import {ModalBlurb} from './components/misc/modalBlurb';
 import {StatusUpdatesView} from './components/misc/statusUpdatesView';
 import {DataForCharFormView} from './helper/types';
 import {ResultsPage} from './components/resultsPage/resultsPage';
+import {loadFromLocalStorage, setSaveToLocalStorage} from './helper/localStorageHelpers';
 
 // TODO:
+// Tweak placeholder information for footer blurb
+// Add validation for maximum numbers for all char view inputs
+// Tweak names of graphs in results > chart pages
 
-// vehicleType select buttons - capitalise
+setSaveToLocalStorage(true);
 
-// optionsTable - Move this to the start of the 'getAgencies()' function.
-
-// import custom data:
-// Do a check for the folder path. If all works, then make it behaves like GTFS Input after the folder has been validated.
+console.log('--------------- START AGAIN');
 
 function App() {
-  // const [mainContent, setMainContent] = useState(<ScenarioForm onSuccess={setCharacteristicsView} agencies={allHardcodedAgencies} />);
-  // const [mainContent, setMainContent] = useState(<h1><button onClick={setScenarioView}>Test</button>Loading Data...</h1>);
   const [mainContent, setMainContent] = useState(<h1>Loading Data...</h1>);
   const [mainBlurb, setMainBlurb] = useState(<ScenarioMainBlurb />);
+  const [loadingTitle, setLoadingTitle] = useState('');
   const [loadingModal, setLoadingModal] = useState(<></>);
   const [view, setView] = useState<'form' | 'results'>('form');
+  const [resultsPage, setResultsPage] = useState<JSX.Element | undefined>();
 
   GetSocket().on('agencyData', (emittedDataFromServer) => {
-    // const agencies = getHardCodedAgencies(emittedDataFromServer.agencyData);
-    setMainContent(<ScenarioForm onSuccess={setCharacteristicsView} agencies={emittedDataFromServer} />);
+    const savedSettings = loadFromLocalStorage();
+    setMainContent(
+      <ScenarioForm
+        onSuccess={setCharacteristicsView}
+        agencies={emittedDataFromServer}
+        gtfsView={savedSettings.scenario.gtfs}
+      />
+    );
     setMainBlurb(<ScenarioMainBlurb />);
+    setLoadingTitle('Processing GTFS Inputs...');
   });
 
   useEffect(() => {
     setScenarioView();
   }, []);
 
-  console.log('--------------- START AGAIN');
+  function setScenarioView() {
+    emitMsg('getAgencies', {});
+  }
 
   function setCharacteristicsView(data: DataForCharFormView) {
     console.log('Setting data...');
@@ -55,20 +65,19 @@ function App() {
         selectedGTFS={data.gtfs}
       />
     );
+    setLoadingTitle('Calculating Scenario...');
   }
 
-  function setScenarioView() {
-    emitMsg('getAgencies', {});
-  }
-
-  function testingWebSocket() {
-    emitMsg('runApp', {});
-  }
+  GetSocket().on('graphData', (data) => {
+    setView('results');
+    setResultsPage(<ResultsPage data={data} goBack={() => setView('form')} />);
+  });
 
   GetSocket().on('error', (errMsg) => {
+    if (errMsg.includes('\n')) errMsg = errMsg.split('\n').map((line: string) => <p>{line}</p>);
+
     setLoadingModal(
       <LoadingModal
-        // content={<StatusUpdatesView title={'Processing GTFS Inputs...'} statusMessage={msg} />}
         content={<ModalBlurb title={'Error:'} content={<div className='errMsg'>{errMsg}</div>} />}
         isActive={true}
         closeButton={() => setLoadingModal(<></>)}
@@ -81,7 +90,17 @@ function App() {
 
     setLoadingModal(
       <LoadingModal
-        content={<StatusUpdatesView title={'Processing GTFS Inputs...'} statusMessage={msg} />}
+        content={<StatusUpdatesView title={loadingTitle} statusMessage={msg} />}
+        isActive={true}
+        // closeButton={() => setLoadingModal(<></>)}
+      />
+    );
+  });
+
+  GetSocket().on('screenshotSaved', (msg) => {
+    setLoadingModal(
+      <LoadingModal
+        content={<StatusUpdatesView title={'Screen Shot Saved!'} statusMessage={'Screenshot saved to: ' + msg} />}
         isActive={true}
         closeButton={() => setLoadingModal(<></>)}
       />
@@ -101,9 +120,13 @@ function App() {
                 <div className='contentPanel' id='mainBlurb'>
                   {mainBlurb}
                   <div>
-                    <button className='btn bg-pink' onClick={() => setView('results')}>
-                      Skip to ResultsPage
-                    </button>
+                    {resultsPage ? (
+                      <button className='btn bg-pink' onClick={() => setView('results')}>
+                        View Previous Results
+                      </button>
+                    ) : (
+                      ''
+                    )}
                   </div>
                 </div>
                 <div className='contentPanel' id='mainContent'>
@@ -114,7 +137,7 @@ function App() {
             ) : (
               ''
             )}
-            {view === 'results' ? <ResultsPage goBack={() => setView('form')} /> : ''}
+            {view === 'results' ? <>{resultsPage}</> : ''}
           </main>
           {getFooter()}
         </div>

@@ -24,7 +24,9 @@ type CharProps = {
   viewRecentResults?: boolean;
 };
 
-// Include defaults for all selectAndInputs based on vehicle type.
+for (const key of Object.keys(getNewCharacteristicsFormState())) {
+  console.log(key);
+}
 
 export const CharacteristicsForm: React.FC<CharProps> = ({
   onSuccess,
@@ -80,10 +82,6 @@ export const CharacteristicsForm: React.FC<CharProps> = ({
     );
   }
 
-  function logFormState() {
-    console.log(formState);
-  }
-
   function getTerminalWindowOptions() {
     const times = [];
     for (let i = 0; i < 60; i++) {
@@ -98,6 +96,8 @@ export const CharacteristicsForm: React.FC<CharProps> = ({
     }
     clearError('socRange');
   }
+
+  // Add validation for chargeLogic start/end
 
   function formIsValid() {
     let isValid = true;
@@ -299,9 +299,15 @@ export const CharacteristicsForm: React.FC<CharProps> = ({
       }
     }
 
+    if (!formState.chargingLogic) {
+      setError('chargingLogic', 'You must select a charging logic!');
+      isValid = false;
+      scrollToViewId = scrollToViewId ? scrollToViewId : '#terminalChargingWindow-InputContainer';
+    }
+
     if (scrollToViewId) scrollToView(scrollToViewId);
 
-    console.log(isValid);
+    // console.log(isValid);
     return isValid;
   }
 
@@ -365,6 +371,7 @@ export const CharacteristicsForm: React.FC<CharProps> = ({
         <button className='btn bg-greyBlue1' onClick={() => goBack()}>
           Go Back
         </button>
+        {/* <button onClick={() => console.log(formState)}>Print CharFormState</button> */}
       </div>
     </div>
   );

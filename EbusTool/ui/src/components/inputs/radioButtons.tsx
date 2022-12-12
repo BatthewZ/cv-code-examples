@@ -1,7 +1,8 @@
+import {CharFormStateKey} from '../../formstate/characteristics_formstate';
+import {ScenFormStateKey} from '../../formstate/scenario_formstate';
 import {InputProps, RadioOptions} from '../../helper/types';
 
-type RadioProps = InputProps & RadioOptions;
-
+type RadioProps = InputProps & RadioOptions & {wrap?: boolean};
 export const RadioButtons: React.FC<RadioProps> = ({
   name,
   tooltip,
@@ -10,12 +11,13 @@ export const RadioButtons: React.FC<RadioProps> = ({
   options,
   updateState,
   blurb,
+  wrap = false,
 }: RadioProps) => {
   function mapButtons() {
     return options.map((option) => {
       const id = 'radio-' + name + '-' + option.value;
       return (
-        <div key={id}>
+        <div key={id} style={wrap ? {paddingTop: '15px', paddingBottom: '15px'} : {}}>
           <input
             type='radio'
             id={id}
@@ -44,6 +46,12 @@ export const RadioButtons: React.FC<RadioProps> = ({
     });
   }
 
+  function className() {
+    let cn = 'inputRow extraTopMargin extraBottomMargin';
+    if (wrap) cn += ' wrap';
+    return cn;
+  }
+
   return (
     <div id={name + '-InputContainer'} className='inputContainer fadeInOnLoad'>
       <div className='row center'>
@@ -61,7 +69,7 @@ export const RadioButtons: React.FC<RadioProps> = ({
       ) : (
         ''
       )}
-      <div className='inputRow extraTopMargin extraBottomMargin'>{mapButtons()}</div>
+      <div className={className()}>{mapButtons()}</div>
       {/* <div className='inputRow'>{mapButtons()}</div> */}
       <span id={'errMsg-' + name} className='errMsg'></span>
     </div>

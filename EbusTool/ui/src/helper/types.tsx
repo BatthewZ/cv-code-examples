@@ -38,22 +38,28 @@ export type UpdatedGtfs = {
 };
 
 export type CharFormDataForBackend = {
-  batterySize: string;
-  socMin: string;
-  socMax: string;
-  energyConsumptionAvg: string;
-  avgVehicleSpeed: string;
+  batterySize: number;
+  socMin: number;
+  socMax: number;
+  energyConsumptionAvg: number;
+  avgVehicleSpeed: number;
   chargeLocation: string;
   chargerType: string;
-  depotChargeRate: string;
-  chargeEfficiency: string;
+  depotChargeRate: number;
+  chargeEfficiency: number;
   terminalChargerType: string;
-  terminalChargeRate: string;
-  terminalChargeEfficiency: string;
-  vehicleEfficiency: string;
-  minLayoverTime: string;
+  terminalChargeRate: number;
+  terminalChargeEfficiency: number;
+  vehicleEfficiency: number;
+  minLayoverTime: number;
   chargeLogic: string;
-  depotTravelTime: number; // Arbitrarily put in here as it seemed required for the back end
+  sunshine_starts: number | undefined;
+  sunshine_ends: number | undefined;
+  peak_starts: number | undefined;
+  peak_ends: number | undefined;
+  // Arbitrarily put in here as it seemed required for the back end:
+  depotTravelTime: number;
+  num_min_periods: number;
 };
 
 export type DataForBackend = {
@@ -77,7 +83,7 @@ export type BlurbInfo = {
 
 // Input Elements:
 export type InputProps = {
-  name: CharFormStateKey | ScenFormStateKey;
+  name: CharFormStateKey | ScenFormStateKey | 'notAKey';
   tooltip?: JSX.Element;
   label?: string;
   defaultValue?: string;
@@ -106,6 +112,12 @@ export type RadioOption = InputOption & {onClick: Function};
 
 export type RadioOptions = {
   options: RadioOption[];
+};
+
+export type SavedScenFormInfo = {
+  state?: AussieState;
+  agencyId?: string;
+  vehicleType?: VehicleType;
 };
 
 // TypeGuards:

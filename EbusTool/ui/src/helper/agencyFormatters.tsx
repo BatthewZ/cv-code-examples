@@ -8,13 +8,9 @@ export function agencySelectOptions(agencies: Agency[]) {
   });
 }
 
-// export function makeAgencyString(agency: Agency) {
-//   return agency.name;
-//   // return `${agency.state} - ${agency.id} - ${agency.name}`;
-// }
-
 export function getAgenciesByState(agencies: Agency[], state: AussieState) {
-  return agencies.filter((agency) => agency.state === state);
+  const agenciesByState = agencies.filter((agency) => agency.state === state);
+  return agenciesByState.sort((a, b) => (a.name > b.name ? 1 : -1));
 }
 
 export function getAgencyBySelectValue(agencies: Agency[], selectValue: string | undefined) {

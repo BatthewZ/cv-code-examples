@@ -16,9 +16,12 @@ export type CharacteristicsFormState = {
   gridToChargerDepot: string | undefined;
   gridToChargerOpp: string | undefined;
   chargingLogic: string | undefined;
-  // depotTravelTime: string | undefined;
-  // thisTest: string | undefined;
+  chargingLogicStart: string | undefined;
+  chargingLogicEnd: string | undefined;
 };
+
+const formStateForKey = getNewCharacteristicsFormState();
+export type CharFormStateKey = keyof typeof formStateForKey;
 
 export function getNewCharacteristicsFormState(): CharacteristicsFormState {
   return {
@@ -37,8 +40,8 @@ export function getNewCharacteristicsFormState(): CharacteristicsFormState {
     gridToChargerDepot: undefined,
     gridToChargerOpp: undefined,
     chargingLogic: undefined,
-    // depotTravelTime: undefined,
-    // thisTest: undefined,
+    chargingLogicStart: undefined,
+    chargingLogicEnd: undefined,
   };
 }
 
@@ -65,6 +68,3 @@ export function setDefaultValuesToFormState(vehicleType: 'bus' | 'ferry', formSt
 export function isCharacteristicsFormKey(value: string): value is CharFormStateKey {
   return value in formStateForKey === true;
 }
-
-const formStateForKey = getNewCharacteristicsFormState();
-export type CharFormStateKey = keyof typeof formStateForKey;

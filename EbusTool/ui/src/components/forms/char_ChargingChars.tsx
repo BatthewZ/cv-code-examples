@@ -10,6 +10,7 @@ import {LoadingModal} from '../misc/loadingModal';
 import {ToolTip} from '../misc/tooltip';
 import {ChargingCharacteristicsBlurb} from '../tooltip-blurbs/char_chargingCharsBlurb';
 import {ChargingLogicBlurb} from '../tooltip-blurbs/char_chargingLogicBlurb';
+import {ChargeLogicHoursSelect} from './char_chargeLogicHours';
 
 type CharTileProps = {
   updateFormState: Function;
@@ -29,6 +30,8 @@ export const ChargingCharacteristics: React.FC<CharTileProps> = ({
   const [oppChargeType, setOppChargeType] = useState<'ac' | 'dc' | undefined>();
   const [oppChargeOptions, setOppChargeOptions] = useState<InputOption[]>();
   const [chargingLogicOptions, setChargingLogicOptions] = useState<RadioOption[]>();
+  const [chargeLogic, setChargeLogic] = useState<'EOS' | 'ds' | 'sunshine' | 'nonpeak' | undefined>();
+  const [chargeLogicHoursSelect, setChargeLogicHoursSelect] = useState(<></>);
 
   const selectOptions: {[index: string]: {ac: InputOption[]; dc: InputOption[]}} = {
     depotChargeRate: {
@@ -103,24 +106,32 @@ export const ChargingCharacteristics: React.FC<CharTileProps> = ({
       {
         value: 'EOS',
         label: 'End of Service: Unconstrained',
-        onClick: () => {},
+        onClick: () => {
+          setChargeLogic('EOS');
+        },
       },
       {
         value: 'nonpeak',
         label: 'End of Service: Non-Peak',
-        onClick: () => {},
+        onClick: () => {
+          setChargeLogic('nonpeak');
+        },
       },
     ],
     terminalsChargingLogic: [
       {
         value: 'ds',
         label: 'During Service: Unconstrained',
-        onClick: () => {},
+        onClick: () => {
+          setChargeLogic('ds');
+        },
       },
       {
         value: 'sunshine',
-        label: 'During Service: Sunshine Soak ***',
-        onClick: () => {},
+        label: 'During Service: Sunshine Soak',
+        onClick: () => {
+          setChargeLogic('sunshine');
+        },
       },
     ],
   };
@@ -132,6 +143,7 @@ export const ChargingCharacteristics: React.FC<CharTileProps> = ({
     unCheckRadioButtons('chargingLogic');
     setDepotChargeType(undefined);
     setOppChargeType(undefined);
+    setChargeLogic(undefined);
 
     // reset formstate
     updateFormState('depotChargeType', undefined);
@@ -139,6 +151,8 @@ export const ChargingCharacteristics: React.FC<CharTileProps> = ({
     updateFormState('depotChargeRate', undefined);
     updateFormState('oppChargeRate', undefined);
     updateFormState('chargingLogic', undefined);
+    updateFormState('chargingLogicStart', undefined);
+    updateFormState('chargingLogicEnd', undefined);
 
     if (depotOrTerms) {
       const chargeType = defaultValues.ac_default ? 'ac' : 'dc';
@@ -173,6 +187,17 @@ export const ChargingCharacteristics: React.FC<CharTileProps> = ({
   useEffect(() => {
     if (oppChargeType) setOppChargeOptions(selectOptions['oppChargeRate'][oppChargeType]);
   }, [oppChargeType]);
+
+  useEffect(() => {
+    const showSelect = chargeLogic === 'nonpeak' || chargeLogic === 'sunshine';
+    setChargeLogicHoursSelect(
+      showSelect ? <ChargeLogicHoursSelect updateFormState={updateFormState} chargeLogic={chargeLogic} /> : <></>
+    );
+    if (!showSelect) {
+      updateFormState('chargingLogicStart', undefined);
+      updateFormState('chargingLogicEnd', undefined);
+    }
+  }, [chargeLogic]);
 
   // console.log('AC Default', defaultValues.ac_default);
   // console.log('DC Default', defaultValues.dc_default);
@@ -326,25 +351,28 @@ export const ChargingCharacteristics: React.FC<CharTileProps> = ({
       /> */}
 
       {depotOrTerms ? (
-        <RadioButtons
-          name={'chargingLogic'}
-          label={'Charging Logic'}
-          blurb={
-            'Select the charging logic for all vehicles. This is dependent on the charging location type chosen (Depot, or Depot and Terminals). More information on each choice is available in the information button.'
-          }
-          tooltip={
-            <ToolTip
-              onClick={() => {
-                showModal(true, ChargingLogicBlurb);
-              }}
-            />
-          }
-          updateState={updateFormState}
-          options={chargingLogicOptions ?? []}
-        />
+        <>
+          <RadioButtons
+            name={'chargingLogic'}
+            label={'Charging Logic'}
+            blurb={
+              'Select the charging logic for all vehicles. This is dependent on the charging location type chosen (Depot, or Depot and Terminals). More information on each choice is available in the information button.'
+            }
+            tooltip={
+              <ToolTip
+                onClick={() => {
+                  showModal(true, ChargingLogicBlurb);
+                }}
+              />
+            }
+            updateState={updateFormState}
+            options={chargingLogicOptions ?? []}
+          />
+        </>
       ) : (
         ''
       )}
+      {chargeLogicHoursSelect}
     </div>
   );
 };

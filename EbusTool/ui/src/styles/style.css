@@ -80,6 +80,7 @@ a,
 a:hover,
 .a:hover {
   color: var(--paleBlue2);
+  cursor: pointer;
 }
 a:active,
 .a:active {
@@ -302,11 +303,20 @@ fieldset {
   user-select: none;
 }
 
-.row {
+.row,
+.rowWrap {
   display: flex;
   flex-direction: row;
   align-items: baseline;
   width: 100%;
+}
+
+.rowWrap {
+  flex-wrap: wrap;
+}
+
+.wrap {
+  flex-wrap: wrap;
 }
 
 .dynamicRow {

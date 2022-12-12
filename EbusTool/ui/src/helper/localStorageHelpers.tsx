@@ -2,7 +2,7 @@
 // import {ScenFormState} from '../FormState/scenarioFormState';
 // import {FormName} from './types';
 
-import { CharFormStateKey } from '../formstate/characteristics_formstate';
+import {CharFormStateKey} from '../formstate/characteristics_formstate';
 import {getNewScenarioFormState, ScenarioFormState, ScenFormStateKey} from '../formstate/scenario_formstate';
 import {FormName} from './types';
 
@@ -14,7 +14,17 @@ export function saveToLocalStorage(formState: ScenarioFormState, scenOrChar: For
   localStorage.setItem(USER_SETTINGS, JSON.stringify(currentStorage));
 }
 
-export function setSaveUserInfo(){
+export function saveSinglePropertyToLocalStorage(
+  formKey: CharFormStateKey | ScenFormStateKey,
+  value: string,
+  scenOrChar: FormName
+) {
+  const currentStorage = loadFromLocalStorage();
+  currentStorage[scenOrChar][formKey] = value;
+  localStorage.setItem(USER_SETTINGS, JSON.stringify(currentStorage));
+}
+
+export function setSaveUserInfo() {
   const currentStorage = loadFromLocalStorage();
   currentStorage['saved'] = true;
   localStorage.setItem(USER_SETTINGS, JSON.stringify(currentStorage));
@@ -37,10 +47,14 @@ export function loadFromLocalStorage() {
   return myStorage;
 }
 
-export function getDefaultChecked(formKey: ScenFormStateKey | CharFormStateKey){
+export function getDefaultChecked(formKey: ScenFormStateKey | CharFormStateKey) {
   // Might not need this
   const savedSettings = loadFromLocalStorage();
   const savedSetting = savedSettings.scenario[formKey] ?? savedSettings.characteristics[formKey];
   return savedSetting;
 }
 
+export function setSaveToLocalStorage(saveToLocalStorage: boolean) {
+  const currentStorage = loadFromLocalStorage();
+  localStorage.setItem('userSettings', JSON.stringify({...currentStorage, saved: saveToLocalStorage}));
+}

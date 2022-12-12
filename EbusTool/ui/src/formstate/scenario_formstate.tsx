@@ -1,9 +1,9 @@
 import {VehicleType} from '../helper/types';
 import {AussieState} from '../helper/aussie_states';
-import { loadFromLocalStorage } from '../helper/localStorageHelpers';
+import {loadFromLocalStorage} from '../helper/localStorageHelpers';
 
 export type ScenarioFormState = {
-  gtfs: string | undefined;
+  gtfs: 'import' | 'default' | undefined;
   state: AussieState | undefined;
   importPath: string | undefined;
   agency: string | undefined;
@@ -22,9 +22,9 @@ export function getNewScenarioFormState(): ScenarioFormState {
   return formState;
 }
 
-export function getSavedOrNewScenarioForm() : ScenarioFormState{
-  const fromLocalStorage  = loadFromLocalStorage();
-  console.log("Loaded scenario form state is: ",fromLocalStorage.scenario)
+export function getSavedOrNewScenarioForm(): ScenarioFormState {
+  const fromLocalStorage = loadFromLocalStorage();
+  console.log('Loaded scenario form state is: ', fromLocalStorage.scenario);
   return fromLocalStorage.scenario ?? getNewScenarioFormState();
 }
 

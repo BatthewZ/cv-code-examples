@@ -14,7 +14,7 @@ export const ChargingCharacteristicsBlurb = (
             Impacts of Electrifying Public Transit on The Electricity Grid, From Regional to State Level Analysis,
             Purnell et al., 2022, Applied Energy (307)
           </strong>
-          , <Link link={'https://doi.org/10.1016/j.apenergy.2021.118272'} />
+          , <Link url={'https://doi.org/10.1016/j.apenergy.2021.118272'} />
         </p>
         <p>
           <strong>Vehicle and Charge Scheduling Approach</strong>
