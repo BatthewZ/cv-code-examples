@@ -56,7 +56,12 @@ export const EditableText: React.FC<EditableTextProps> = ({
                 type={inputType}
                 defaultValue={value}
                 name={fieldName}
-                onChange={(e) => setTextState(e.target.value && e.target.value.trim() ? e.target.value : '')}
+                onChange={(e) => {
+                  let val = e.target.value;
+                  if (val && val.trim().length > 50) val = val.substring(0, 50);
+                  console.log('val', val);
+                  setTextState(val && val.trim() ? val : '');
+                }}
                 placeholder={placeholder ? placeholder : capitalizeAllFirstLetters(title ?? fieldName)}
                 onKeyDown={(e) => {
                   if (e.key === 'Escape') toggleEditMode();

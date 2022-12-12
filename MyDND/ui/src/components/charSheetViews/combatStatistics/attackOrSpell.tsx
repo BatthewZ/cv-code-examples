@@ -54,25 +54,25 @@ export const AttackOrSpell: React.FC<AttackOrSpellProps> = ({
   }
 
   return (
-    <fieldset className='row centerChildren'>
+    <fieldset className='column centerChildren'>
       {name ? <legend>{name}</legend> : ''}
-      <div className='column width75Percent'>
-        <EditableText
-          title='Attack/Spell Name'
-          fieldName={'attackOrSpellName'}
-          value={name}
-          confirmEdit={(e: string) => setName(e)}
-        />
-        <EditableText
-          fieldName={'attackOrSpellDescription'}
-          title='Description'
-          inputType='textarea'
-          value={description}
-          confirmEdit={(e: string) => setDescription(e)}
-          className='notes'
-        />
-      </div>
-      <div className='column'>
+
+      <EditableText
+        title='Attack/Spell Name'
+        fieldName={'attackOrSpellName'}
+        value={name}
+        confirmEdit={(e: string) => setName(e)}
+      />
+      <EditableText
+        fieldName={'attackOrSpellDescription'}
+        title='Description'
+        inputType='textarea'
+        value={description}
+        confirmEdit={(e: string) => setDescription(e)}
+        className='notes'
+      />
+
+      <div className='rowWrap centerChildren'>
         <Dice
           num={+baseDmg.split('d')[0]}
           type={+baseDmg.split('d')[1] as DiceType}
@@ -96,6 +96,8 @@ export const AttackOrSpell: React.FC<AttackOrSpellProps> = ({
             setDmgType(e);
           }}
         />
+      </div>
+      <div className='column'>
         <button
           onClick={() => {
             setDiceModal(
@@ -108,7 +110,6 @@ export const AttackOrSpell: React.FC<AttackOrSpellProps> = ({
         >
           Roll Damage
         </button>
-        <p></p>
         {delButtonView}
       </div>
     </fieldset>
