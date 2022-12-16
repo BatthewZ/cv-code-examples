@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <h1 class="display-4">MBCA</h1>
+    <h2>Admin Portal</h2>
+</div>
+
+<div class="row justify-content-center text-center">
+    <form asp-action="Login" style="max-width: 300px;">
+        <div class="form-group">
+            <label for="user" class="control-label">Login:</label>
+            <input id="user" type="text" name="user" class="form-control" data-val="true" data-val-required="You must enter a username."/>
+        </div>
+        
+        <div class="form-group">
+            <label for="password" class="control-label">Password:</label>
+            <input id="password" type="text" name="password" class="form-control" data-val="true" data-val-required="You must enter a password."/>
+        </div>
+        
+        @Html.ValidationMessage("invalidLogin", new { @class="text-danger" })
+
+        <div class="form-group">
+            <input type="submit" value="Login" class="btn btn-primary" onclick="bensModal()" />
+        </div>
+    </form>
+</div>

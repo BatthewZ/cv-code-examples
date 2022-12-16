@@ -1,0 +1,42 @@
+﻿@using Assignment2.Data.Models
+@using Assignment2.Controllers
+@using BMTools
+@using Assignment2.Data
+@model CustomerModel 
+@{
+    ViewData["Title"] = "Home";
+}
+
+<h1>Welcome @Model.Name </h1>
+<div>
+    <h3>Account Summary:</h3>
+</div>
+
+@if(Model.Accounts != null && Model.Accounts.Count > 0)
+{
+    <table class="table">
+        <tr>
+            <th>Account Number</th>
+            <th>Type</th>
+            <th>Current Balance</th>
+            <th></th>
+        </tr>
+        @foreach(var acc in Model.Accounts)
+        {
+            var type = ((AccountType)acc.Type).ToString().CapitalizeFirstLetter();
+
+            <tr>
+                <td>@acc.AccountNumber</td>
+                <td>@type</td>
+                <td>@acc.CheckBalance().ToString("C")</td>
+                <td><a class="btn btn-primary" asp-controller="MyStatements" asp-action="Index" asp-route-accountnumber="@acc.AccountNumber">View Statement</a></td>
+            </tr>
+        }
+    </table>
+} else
+{
+    <p><strong>It seems you have no accounts with us yet.  Please come in to a branch to sign up for one today.</strong></p>
+}
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

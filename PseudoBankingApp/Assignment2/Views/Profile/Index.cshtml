@@ -1,0 +1,54 @@
+﻿@using Assignment2.ViewModels
+@model CustomerViewModel
+
+<div class="container">
+    <h1>My Profile</h1>
+       <div class="row align-items-start">
+            <div class="col-3 text-uppercase">
+                <h4>Name:</h4>
+            </div>
+            <div class="col">
+                @Model.Name
+            </div>
+       </div>
+        <div class="row align-items-start">
+            <div class="col-3 text-uppercase">
+                <h4>Customer ID:</h4>
+            </div>
+            <div class="col">
+                @Model.ID
+            </div>
+       </div>
+        <div class="row align-items-start">
+            <div class="col-3 text-uppercase">
+                <h4>Tax File Number:</h4>
+            </div>
+            <div class="col">
+                @Model.TFN
+            </div>
+       </div>
+        <div class="row align-items-start">
+            <div class="col-3 text-uppercase">
+                <h4>Address:</h4>
+            </div>
+            <div class="col">
+                @Model.Address <text class="text-uppercase">@Model.City @Model.StateOrTerritory</text> @Model.PostCode
+            </div>
+       </div>
+       <div class="row align-items-start">
+            <div class="col-3 text-uppercase">
+                <h4>Mobile Number:</h4>
+            </div>
+            <div class="col">
+                @Model.MobileNumber
+            </div>
+       </div>
+
+        <a class="btn btn-primary" asp-action="Edit">Edit Profile</a>
+        <p></p>
+        <form asp-action="ChangePassword">
+            <input type="hidden" value="@false" name="changeSuccess" />
+            <input type="submit" class="btn btn-primary" asp-action="ChangePassword" value="Change Password"/>
+        </form>
+</div>
+

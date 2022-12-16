@@ -1,0 +1,75 @@
+﻿@using Assignment2.ViewModels
+@model List<CustomerViewModel>
+@{
+
+    ViewData["Title"] = "Admin Portal";
+}
+<h1>Welcome Administrator</h1>
+
+<hr />
+
+<p>Customer Information:</p>
+<script>
+let msg = "Updating the account, this will take a moment...";
+</script>
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    @foreach(var customer in Model)
+    {
+        <tr>
+            <td>@customer.ID</td>
+            <td>@customer.Name</td>
+            @*Other customer details in here?*@
+            <td>
+                <form asp-action="EditCustomer">
+                    <input type="hidden" name="customerID" value="@customer.ID" />
+                    <input type="submit" class="btn btn-outline-primary" value="Edit User Details" />
+                </form>
+            </td>
+            <form asp-action="UpdateLogin">
+                <td>
+                <input type="hidden" name="customerID" value="@customer.ID" />
+                @if (customer.LoginIsFrozen)
+                {
+                    <input type="hidden" name="isFrozen" value="false" />
+                    <input type="submit" class="btn btn-primary" value="Unfreeze Account" onclick="bensModal(msg)"/>
+                } else
+                {
+                    <input type="hidden" name="isFrozen" value="true" />
+                    <input type="submit" class="btn btn-outline-primary" value="Freeze Account" onclick="bensModal(msg)"/>
+                }
+                </td>
+            </form>
+            <td>
+            <form asp-action="SelectAccount">
+                <input type="hidden" name="customerID" value="@customer.ID" />
+                <input type="hidden" name="redirectToAction" value="PassAccountNumToTvm" />
+                <input type="submit" class="btn btn-outline-primary" value="View Transactions" />
+            </form>
+            </td>
+            <td>
+            <form asp-action="SelectAccount">
+                <input type="hidden" name="customerID" value="@customer.ID" />
+                <input type="hidden" name="redirectToAction" value="BillPays" />
+                <input type="submit" class="btn btn-outline-primary" value="View Scheduled Payments" />
+            </form>
+            </td>
+        </tr>
+
+    }
+    </table>
+}
+
+
+
+

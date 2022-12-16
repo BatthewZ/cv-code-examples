@@ -1,0 +1,82 @@
+﻿@using Assignment2.Data.Models
+@using Assignment2.Data
+@using BMTools
+@model List<BillPayModel>
+@{
+    bool unprocessedBillPays = false;
+    string unprocessedBillTextStyle = "";
+}
+<h1>BillPay</h1>
+
+<h3>Currently Scheduled:</h3>
+<form asp-action="Modify">
+    @if(Model != null && Model.Count > 0)
+    {
+        <p></p>
+        <table class="table">
+            <tr>
+                <th>Account Number</th>
+                <th>Payee</th>
+                <th>Amount</th>
+                <th>Scheduled Time</th>
+                <th>Type</th>
+                <th></th>
+                <th></th>
+            </tr>
+            @foreach(var bp in Model)
+            {
+                bool unprocessedPayment = DateTime.Now >= bp.ScheduleTimeUtc.ToLocalTime();
+                if (unprocessedPayment || bp.IsFrozen)
+                {
+                    unprocessedBillTextStyle = "text-danger";
+                    unprocessedBillPays = true;
+                }
+                else
+                {
+                    unprocessedBillTextStyle = "";
+                }
+                var type = (BillPeriodType)bp.Period;
+                <tr class="@unprocessedBillTextStyle">
+                    <td>@bp.AccountNumber</td>
+                    <td>@bp.Payee.Name</td>
+                    <td>@bp.Amount.ToString("C")</td>
+                    <td>@bp.ScheduleTimeUtc.ToLocalTime().ToString("dd/MM/yyyy hh:mm:ss tt")</td>
+                    <td>@type.ToString().CapitalizeFirstLetter()</td>
+                    <td>
+                        @if (@bp.IsFrozen){
+                            <strong>This Payment Has Been Frozen.
+                            <br>Please speak with the bank or cancel the payment.</strong>
+                        } else {
+                        <form asp-action="Modify">
+                            <input type="hidden" value="@bp.ID" name="bpID" />
+                            <input type="submit" class="btn btn-primary" asp-action="Modify" value="Modify Payment"/>
+                        </form>
+                        }
+                     </td> 
+                    <td>
+                        <form asp-action="Delete">
+                            <input type="hidden" value="@bp.ID" name="bpID" />
+                            <input type="submit" class="btn btn-outline-danger" asp-action="Delete" value="Cancel Payment"/>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </table>
+        @if (unprocessedBillPays)
+        {
+            <span class="text-danger">Unprocessed bills are marked in red. If they are new listings scheduled for today, they will be paid shortly. Otherwise, please check your account balance and reschedule or delete them. </span>
+        }
+    } else
+    {
+        <p>No bill payments have been listed.</p>
+    }
+</form>
+<hr />
+<form asp-action="Modify">
+    <input type="hidden" value="-1" name="bpID" />
+    <input type="submit" class="btn btn-primary" asp-action="Modify" value="New BillPay"/>
+</form>
+
+
+
+

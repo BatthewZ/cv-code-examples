@@ -1,0 +1,51 @@
+﻿@using AdminPortal.ViewModels
+@model TransactionsViewModel
+
+<h2>View Transactions</h2>
+<p></p>
+<h4>Filter Search:</h4>
+<form asp-action="ViewTransactions">
+    <input type="hidden" asp-for="AccountNumber" value="@Model.AccountNumber" />
+    <div style="display: flex; flex-direction: row;" class="fw-bold">
+        <div>
+             <label asp-for="StartDate" class="control-label" value="@Model.StartDate"></label><br />
+             <input asp-for="StartDate" type="datetime-local" max="@DateTime.Now.ToString("yyyy/MM/dd hh:mm")" />
+         </div>
+         <div style="margin: 10px;"></div>
+         <div>
+            <label asp-for="EndDate" class="control-label" value="@Model.EndDate"></label><br />
+            <input asp-for="EndDate" type="datetime-local" max="@DateTime.Now.ToString("yyyy/MM/dd hh:mm")" />
+         </div>
+    </div>
+    <p></p>
+    <input type="submit" value="Apply Filter" class="btn btn-primary" />
+</form>
+<p></p>
+    <form asp-action="Index">
+        <input type="submit" value="Back to Home" class="btn btn-primary" onclick="bensModal()"/>
+    </form>
+<hr />
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Account Number</th>
+        <th>Destination Account</th>
+        <th>Amount</th>
+        <th>Comment</th>
+        <th>Transaction Time</th>
+    </tr>
+@foreach(var tr in Model.Transactions)
+{
+    <tr>
+        <td>@tr.ID</td>
+        <td>@tr.TransactionType</td>
+        <td>@tr.AccountNumber</td>
+        <td>@tr.DestinationAccountNumber</td>
+        <td>@tr.Amount.ToString("C")</td>
+        <td>@tr.Comment</td>
+        <td>@tr.TransactionTimeUtc.ToLocalTime().ToString("dd/MM/yyyy hh:mm:ss tt")</td>
+    </tr>
+}
+
+</table>

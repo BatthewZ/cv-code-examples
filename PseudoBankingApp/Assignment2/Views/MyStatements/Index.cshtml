@@ -1,0 +1,74 @@
+﻿@using Assignment2.Data.Models
+@using Assignment2.Data
+@using BMTools
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@model List<AccountModel>
+@{
+    var Transaction = ViewBag.TransactionModel;
+    IPagedList<TransactionModel> pages = ViewBag.TransactionPages;
+}
+
+<h1>My Statements</h1>
+
+@*Generate account links if account is unselected.*@
+@if (ViewBag.SelectedAcc.Equals("UNSELECTED") && Model.Count > 1)
+{
+    <div class="text-center">
+        <p>Please select your account:</p>
+        <div>
+            @foreach(var acc in Model)
+            {
+                var accType = (AccountType)acc.Type;
+                <a class="btn btn-primary" asp-controller="MyStatements" asp-action="Index" asp-route-accountnumber="@acc.AccountNumber">@acc.AccountNumber : @accType</a>
+            }    
+        </div>
+    </div>
+} 
+else 
+{
+    var acc = Model[0];
+    var accType = (AccountType)acc.Type;
+
+    if (ViewBag.TransactionPages != null)
+    {
+        <p></p>
+        <h3>Transactions for @accType.ToString().CapitalizeFirstLetter() Account #@acc.AccountNumber</h3>
+        <h4>Current Balance: @acc.CheckBalance().ToString("C")</h4>
+        <table class="table">
+            <tr>
+                <th>Amount</th>
+                <th>Debit or Credit</th>
+                <th>Type</th>
+                <th>Transfer To Account</th>
+                <th>Comment</th>
+                <th>Time</th>
+            </tr>
+
+            @foreach(var tr in pages)
+            {
+                var trType = (TransactionType)tr.TransactionType;
+                string destAcc = tr.DestinationAccountNumber.HasValue ? tr.DestinationAccountNumber.ToString() : "-";
+                string time = tr.TransactionTimeUtc.ToLocalTime().ToString("dd/MM/yyyy hh:mm:ss tt");
+                string comment = tr.Comment ?? "-";
+                <tr>
+                    <td>@tr.Amount.ToString("C")</td>
+                    <td>@tr.DebitOrCredit()</td>
+                    <td>@trType</td>
+                    <td>@destAcc</td>
+                    <td>@comment</td>
+                    <td>@time</td>
+                </tr>
+            }
+        </table>
+
+        @Html.PagedListPager(pages, page => Url.Action("Index", new{ accountnumber = acc.AccountNumber.ToString(), page}),
+        new PagedListRenderOptions {
+            LiElementClasses = new[] { "page-item" },
+            PageClasses = new[] { "page-link" }
+        });
+        <p></p>
+        <a href="/" class="btn btn-primary" >Back To Home</a>
+    }
+}

@@ -1,0 +1,70 @@
+﻿@using Assignment2.ViewModels;
+@using Assignment2.Data;
+@using Assignment2.Data.Models;
+@using BMTools;
+@model TransactionViewModel
+
+@{
+    TransactionType type = (TransactionType)Model.TransactionType;
+}
+
+<div>
+    <h1>@type</h1>
+</div>
+
+<form asp-action="SubmitTransaction">
+    <input type="hidden" value="@Model.TransactionType" name="transactionType" />
+    @*Prepare Account radio buttons: *@
+    <div class="text-center">
+        <p><strong>Select your account:</strong></p>
+        <div>
+            @foreach(var acc in Model.Accounts){
+                var accType = (AccountType) acc.Type;
+                <input type="radio" id="@acc.AccountNumber" value="@acc.AccountNumber" name="AccountNumber" class="btn-check" />
+                <label for="@acc.AccountNumber" class="btn btn-outline-primary">@accType : @acc.CheckBalance().ToString("C")</label>
+            }
+        </div>
+    </div>
+    <div class="text-center">
+        <span class="text-danger field-validation-valid" data-valmsg-for="InvalidAccount" data-valmsg-replace="true"></span>
+        @Html.ValidationMessage("InvalidAccount", new{ @class="text-danger" })
+    </div>
+    @if (Model.Accounts != null && Model.Accounts.Count > 0)
+    {
+        if (Model.TransactionType == (char)TransactionType.TRANSFER)
+        {
+            <div class="form-group">
+                <label asp-for="destAcc" class="control-label"></label>
+                <input type="text" asp-for="destAcc" class="form-control" pattern="@RegexPattern.FOUR_DIGITS" title="Valid account numbers are four digits long (between 1000-9999 inclusive)." required />
+                <span asp-validation-for="destAcc" class="text-danger"></span>
+                @Html.ValidationMessage("InvalidDestinationAcc", new{ @class="text-danger"})
+            </div>
+        }
+    
+        <div class="form-group">
+            <label asp-for="Amount" class="control-label"></label>
+            <input type="text" asp-for="Amount" class="form-control" pattern="@RegexPattern.AMOUNT" title="Please enter a valid positive number with up to 2 decimals. Do not use spaces or commas." required />
+            <span asp-validation-for="Amount" name="Amount" class="text-danger"></span>
+            @Html.ValidationMessage("InvalidAmount", new{ @class="text-danger" })
+        </div>
+        <div class="form-group">
+            <label asp-for="Comment" class="control-label"></label>
+            <input asp-for="Comment" class="form-control" value="@ViewBag.Comment" pattern="@RegexPattern.COMMENT" title="Only alphanumeric characters and spaces permitted, and up to 30 characters." />
+            @Html.ValidationMessage("InvalidComment", new{ @class="text-danger"})
+        </div>
+        <p></p>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-primary" />
+        </div>
+    } else{
+        <p>
+            <strong>
+                It appears as though you do not have an account. Please come in to a branch
+                and speak with us about opening an account.
+            </strong>
+        </p>
+    }
+</form>
+
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

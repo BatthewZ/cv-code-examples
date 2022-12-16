@@ -1,0 +1,23 @@
+﻿@using Assignment2.Data.Models
+@model List<AccountModel>
+
+<div class="text-center">
+    <h2>Please select an account:</h2>
+    <div style="display: flex; flex-direction: row; justify-content: center;">
+    @foreach(var account in @Model)
+    {
+        <form asp-action="@ViewBag.RedirectToAction">    
+            <input type="hidden" name="accountNumber" value="@account.AccountNumber" />
+            <input type="submit" class="btn btn-primary" value="@account.AccountNumber" style="margin:10px;" />
+        </form>
+    }
+    </div>
+    <hr />
+    <div class="text-center">
+    <form asp-action="Index">
+        <input type="submit" value="Go Back" class="btn btn-primary" onclick="bensModal()"/>
+    </form>
+    </div>
+</div>
+
+

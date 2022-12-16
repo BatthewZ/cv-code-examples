@@ -1,0 +1,107 @@
+﻿@using Assignment2.ViewModels
+@using Assignment2.Data
+@using BMTools
+@model CustomerViewModel
+
+@{
+    var enums = Enum.GetNames(typeof(AusRegion)).ToList();
+}
+
+<div class="container">
+    <form asp-action="submit">
+        <input value="@Model.ID" name="ID" type="hidden"/>
+        <h1>Edit Profile</h1>
+           <div class="row align-items-start">
+                <div class="col text-uppercase">
+                    <h4>
+                   <label asp-for="Name" class="control-label"></label>
+                   </h4>
+                   <input asp-for="Name" type="text" class="form-control" pattern="@RegexPattern.NAME" title="Please enter a first and last name." value="@Model.Name" required />
+                   <span asp-validation-for="Name" class="text-danger"></span>
+                   @Html.ValidationMessage("InvalidName", new { @class="text-danger"})
+                </div>
+           </div>
+           <div class="row align-items-start">
+                <div class="col">
+                     <h4>
+                   <label asp-for="TFN" class="control-label"></label>
+                   </h4>
+                   <input asp-for="TFN" type="text" class="form-control" pattern="@RegexPattern.TFN_INPUT" title="Tax File Number must be 9 digits (no spaces, hyphens or commas)." value="@Model.TFN" />
+                   <span asp-validation-for="TFN" class="text-danger"></span>
+                   @Html.ValidationMessage("InvalidTFN", new { @class="text-danger"})
+                </div>
+           </div>
+           <div class="row align-items-start">
+                <div class="col">
+                     <h4>
+                   <label asp-for="Address" class="control-label"></label>
+                   </h4>
+                   <input asp-for="Address" type="text" class="form-control" 
+                    pattern="@RegexPattern.ADDRESS" 
+                    title="'Unit Number'(optional) followed by Street Number Street Name. E.g.: 'Unit 9, 123 Fake Street' or '12 pancake avenue'" 
+                    value="@Model.Address" />
+                   <span asp-validation-for="Address" class="text-danger"></span>
+                   @Html.ValidationMessage("InvalidAddress", new { @class="text-danger"})
+                </div>
+           </div>
+           <div class="row align-items-start">
+                <div class="col">
+                    <h4>
+                    <label asp-for="City" class="control-label"></label>
+                    </h4>
+                   <input asp-for="City" type="text" class="form-control" 
+                    pattern="@RegexPattern.CITY" 
+                    title="One or two words, or leave blank." 
+                    value="@Model.City" />
+                   <span asp-validation-for="City" class="text-danger"></span>
+                   @Html.ValidationMessage("InvalidCity", new { @class="text-danger"})
+                </div>
+           </div><div class="row align-items-start">
+                <div class="col">
+                    <h4>
+                        State or Territory:
+                    </h4>
+                    <select id="StateOrTerritory", name="@nameof(Model.StateOrTerritory)">
+                        <option value="@null">Select...</option>
+                    @foreach(var stateOrRegion in enums)
+                    {
+                        if(stateOrRegion.Equals(Model.StateOrTerritory)){
+                            <option value="@stateOrRegion" selected>@stateOrRegion</option>
+                        } 
+                        else
+                        {
+                            <option value="@stateOrRegion">@stateOrRegion</option>
+                        }
+                    }
+                </select>
+                </div>
+           </div>
+           <div class="row align-items-start">
+                <div class="col">
+                    <h4>
+                   <label asp-for="PostCode" class="control-label"></label>
+                   </h4>
+                   <input asp-for="PostCode" type="text" class="form-control" 
+                    pattern="@RegexPattern.POSTCODE_INPUT" 
+                    title="Must be a valid Australian postcode between 0800 and 9999." 
+                    value="@Model.PostCode" />
+                   <span asp-validation-for="PostCode" class="text-danger"></span>
+                   @Html.ValidationMessage("InvalidPostCode", new { @class="text-danger"})
+                </div>
+           </div>
+           <div class="row align-items-start">
+                <div class="col">
+                    <h4>
+                    <label asp-for="MobileNumber" class="control-label"></label>
+                    </h4>
+                   <input asp-for="MobileNumber" type="text" class="form-control" 
+                    pattern="@RegexPattern.MOBILE_NUM_INPUT" 
+                    title="Must start with '04' followed by 8 digits: 04XXXXXXXX or 04 XXXX XXXX or 04XX XXX XXX." 
+                    value="@Model.MobileNumber" />
+                   <span asp-validation-for="MobileNumber" class="text-danger"></span>
+                   @Html.ValidationMessage("InvalidMobNum", new { @class="text-danger"})
+                </div>
+           </div>
+           <input type="submit" value="Submit" class="btn btn-primary" />
+    </form>
+</div>

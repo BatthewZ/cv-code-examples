@@ -1,0 +1,167 @@
+﻿@using Assignment2.Data
+@using Assignment2.ViewModels
+@using BMTools
+@model BpViewModel
+@{
+    string modifyOrNew = Model.BP_ID == -1 ? "New" : "Modify";
+    var states = Enum.GetNames(typeof(AusRegion)).ToList();
+    var currentTime = @DateTime.Now.ToString("yyyy/MM/dd hh:mm");
+}
+<h1>@modifyOrNew Bill Payment</h1>
+
+<script>
+function clearNewPayeeFields() {
+    document.getElementById("Payee_Name").value = "";
+    document.getElementById("Payee_Address").value = "";
+    document.getElementById("Payee_City").value = "";
+    document.getElementById("Payee_PostCode").value = "";
+    document.getElementById("StateOrTerritory").selectedIndex = 0;
+    document.getElementById("Payee_Phone").value = "";
+}
+</script>
+<form asp-action="Confirm">
+    <input type="hidden" asp-for="BP_ID" value="@Model.BP_ID" />
+    @if (Model.PreviousPayees.Count > 0)
+    {
+     <p></p>
+            <p class="fw-bold">Select a previous Payee, or set up a new payee below.</p>
+            <p></p>    
+            <select id="PayeeDropDown" name="@nameof(Model.Payee_ID)" class="form-select" style="max-width: 300px;" onchange="clearNewPayeeFields()">
+                <option value="-1">Select...</option>
+                @foreach(var payee in Model.PreviousPayees)
+                {
+                    if (Model.Payee_ID == payee.ID)
+                    {
+                        <option value="@payee.ID" selected>@payee.Name : @payee.ID</option>
+                    } 
+                    else
+                    {
+                        <option value="@payee.ID">@payee.Name : @payee.ID</option>
+                    }
+                }
+            </select>
+            @Html.ValidationMessage("PayeeConflict", new { @class="text-danger" }) 
+    }
+    <hr />
+    <div>
+        <p><strong>Select your account:</strong></p>
+        <div>
+            @foreach(var acc in Model.UserAccounts)
+            {
+                var accType = (AccountType) acc.Type;
+                if (acc.AccountNumber == Model.BP_AccountNumber)
+                {
+                    <input type="radio" id="@acc.AccountNumber" value="@acc.AccountNumber" name="BP_AccountNumber" class="btn-check" checked />
+                }
+                else
+                {
+                    <input type="radio" id="@acc.AccountNumber" value="@acc.AccountNumber" name="BP_AccountNumber" class="btn-check" />    
+                }
+                <label for="@acc.AccountNumber" class="btn btn-outline-primary">@acc.AccountNumber : @accType : @acc.CheckBalance().ToString("C")</label>
+            }
+        <p>@Html.ValidationMessage("InvalidAccount", new { @class="text-danger fw-bold" })</p>
+        
+        </div>
+    </div>
+    <p></p>
+    <div class="fw-bold">
+        <div>
+            <label asp-for="Amount" class="control-label"></label><br />
+            <input asp-for="Amount" value="@Model.Amount.ToString("C").Replace("$", "")" type="text" pattern="@RegexPattern.AMOUNT" title="Please enter a positive number between 0.01 - 999,999,999.99" />
+            <p>@Html.ValidationMessage("InvalidAmount", new{ @class="text-danger" })</p>
+        </div>
+        <p></p>
+        <div>
+            <label asp-for="ScheduledTimeNow" class="control-label" value="@Model.ScheduledTimeNow"></label><br />
+            <input asp-for="ScheduledTimeNow" type="datetime-local" min="@DateTime.Now.ToString("yyyy/MM/dd hh:mm")" required />
+            <p>@Html.ValidationMessage("InvalidDate", new{ @class="text-danger" })</p>
+        </div>
+        <p></p>
+        <div>
+            Choose Payment Type:
+            <select id="Period" name="@nameof(Model.Period)" class="form-select" style="max-width: 300px;" required>
+                <option value="">Select...</option>
+                @{
+                    var billPeriodTypes = Enum.GetNames(typeof(BillPeriodType)).ToList();
+                    foreach(var type in billPeriodTypes)
+                    {
+                        if (type.Equals(Model.Period.ToString()))
+                        {
+                               <option value="@type" selected>@type.CapitalizeFirstLetter()</option>
+                        }
+                        else
+                        {
+                               <option value="@type">@type.CapitalizeFirstLetter()</option>    
+                        }
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <hr />
+    <div class="fw-bold">
+        <h2>Set up a new payee:</h2>
+        <div>
+            <label asp-for="Payee_Name" class="control-label"></label><br />
+            <input asp-for="Payee_Name" class="form-control" pattern="@RegexPattern.NAME" title="Please enter a first and last name."  />
+            @Html.ValidationMessage("InvalidName", new{@class="text-danger"})
+        </div>
+        <p></p>
+        <div>
+            <label asp-for="Payee_Address" class="control-label"></label><br />
+            <input asp-for="Payee_Address" 
+            class="form-control" 
+            pattern="@RegexPattern.ADDRESS" 
+            title="'Unit Number'(optional) followed by Street Number Street Name. E.g.: 'Unit 9, 123 Fake Street' or '12 pancake avenue'"  />
+            <span asp-validation-for="Payee_Address" class="text-danger"></span>
+            @Html.ValidationMessage("InvalidAddress", new{@class="text-danger"})
+        </div>
+        <p></p>
+        <div>
+            <label asp-for="Payee_City" class="control-label"></label><br />
+            <input asp-for="Payee_City" class="form-control" pattern="@RegexPattern.CITY" title="One or two words."  />
+            @Html.ValidationMessage("InvalidCity", new{@class="text-danger"})
+        </div>
+        <p></p>
+        <div>
+            <label asp-for="Payee_PostCode" class="control-label"></label><br />
+            <input asp-for="Payee_PostCode" class="form-control" pattern="@RegexPattern.POSTCODE_INPUT" title="Must be a valid Australian postcode between 0800 and 9999." />
+            @Html.ValidationMessage("InvalidPostCode", new{@class="text-danger"})
+        </div>
+        <p></p>
+        <div>
+            Select Payee's State or Region:<br />
+            <select id="StateOrTerritory", name="@nameof(Model.Payee_State)" style="max-width: 300px" class="form-select">
+                <option value="@null">Select...</option>
+                @foreach(var stateOrRegion in states)
+                {
+                    if(stateOrRegion.Equals(Model.Payee_State)){
+                        <option value="@stateOrRegion" selected>@stateOrRegion</option>
+                    } 
+                    else
+                    {
+                        <option value="@stateOrRegion">@stateOrRegion</option>
+                    }
+                }
+            </select>
+            @Html.ValidationMessage("InvalidRegion", new{ @class="text-danger" })
+        </div>
+        <p></p>
+        <div>
+            <label asp-for="Payee_Phone" class="control-label"></label><br />
+            <input asp-for="Payee_Phone" type="phone" class="form-control" pattern="@RegexPattern.PHONE_INPUT" title="Please use this format: 0X XXXX XXXX. Phone number must begin with a 0." />
+            @Html.ValidationMessage("InvalidPhone", new{ @class="text-danger"})
+        </div>
+    </div>
+    <script>
+    if (document.getElementById("PayeeDropDown").value != -1) 
+    {
+        clearNewPayeeFields();
+    }
+    </script>
+    <p></p>
+    <input type="button" onclick="clearNewPayeeFields()" value="Clear New Payee Details" class="btn btn-primary" />
+    <hr />
+    <input type="submit" value="Submit" class="btn btn-primary" />
+</form>
+

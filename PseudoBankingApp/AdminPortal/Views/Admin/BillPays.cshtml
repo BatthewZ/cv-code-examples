@@ -1,0 +1,51 @@
+﻿@using Assignment2.Data.Models
+@model List<BillPayModel>
+
+@if (Model != null && Model.Count > 0)
+{
+    <h1>Scheduled Payments For Account: @Model[0].AccountNumber</h1>
+    <form asp-action="Index">
+        <input type="submit" value="Back to Home" class="btn btn-primary" onclick="bensModal()"/>
+    </form>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Account Number</th>
+            <th>Payee ID</th>
+            <th>Amount</th>
+            <th>Scheduled Time</th>
+            <th>Period</th>
+            <th>Frozen Status</th>
+        </tr>
+        @foreach(var bp in Model)
+        {
+         <tr>
+             <td>@bp.ID</td>
+             <td>@bp.AccountNumber</td>
+             <td>@bp.PayeeID</td>
+             <td>@bp.Amount.ToString("C")</td>
+             <td>@bp.ScheduleTimeUtc.ToLocalTime()</td>
+             <td>@bp.Period</td>
+             <form asp-action="UpdateBillPay">
+                <td>
+                <input type="hidden" name="bpID" value="@bp.ID" />
+                <input type="hidden" name="accountNumber" value="@bp.AccountNumber" />
+                @if (bp.IsFrozen)
+                {
+                    <input type="hidden" name="isFrozen" value="false" />
+                    <input type="submit" class="btn btn-primary" value="Unfreeze Payment" onclick="bensModal('Updating BillPay Status...')"/>
+                } else
+                {
+                    <input type="hidden" name="isFrozen" value="true" />
+                    <input type="submit" class="btn btn-outline-primary" value="Freeze Payment" onclick="bensModal('Updating BillPay Status...')"/>
+                }
+                </td>
+            </form>
+         </tr>   
+        }
+    </table>
+} 
+else 
+{
+    <h1>No scheduled payments available for the selected account.</h1>
+}

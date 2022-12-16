@@ -1,0 +1,68 @@
+﻿@using Assignment2.Data.Models
+@using Assignment2.Data
+@model TransactionModel
+@{
+    var type = (TransactionType)Model.TransactionType;
+}
+
+<h2>Confirm and Submit</h2>
+<p>Please check all details before confirming.</p>
+
+<form asp-action="UpdateDB">
+    <input type="hidden" value="@Model.TransactionType" name="TransactionType" />
+    <div class="container text-start">
+        <h1>@type</h1>
+        <div class="row align-items-start text-uppercase">
+            <div class="col">
+                @if (type == TransactionType.DEPOSIT)
+                {
+                    <h4>Into Account: </h4>
+                } else 
+                {
+                    <h4>From Account: </h4>
+                } 
+            </div>
+            <div class="col">
+                <input asp-for="AccountNumber" type="hidden" />
+                @Model.AccountNumber  
+            </div>
+        </div>
+        <div class="row align-items-start text-uppercase">
+            <div class="col">
+                <h4>Amount:</h4>
+            </div>
+            <div class="col">
+                <input asp-for="Amount" type="hidden" />
+                @Model.Amount.ToString("C")
+            </div>
+       </div>
+        @if (type == TransactionType.TRANSFER){
+            <div class="row align-items-start text-uppercase">
+                <div class="col">
+                    <h4>To Account:</h4>
+                </div>
+                <div class="col">
+                    <input asp-for="DestinationAccountNumber" type="hidden" />
+                    @Model.DestinationAccountNumber
+                </div>
+            </div>
+        }
+        @if (!string.IsNullOrEmpty(Model.Comment)){
+            <div class="row align-items-start">
+                <div class="col text-uppercase">
+                    <h4>Description:</h4>
+                </div>
+                <div class="col">
+                    <input asp-for="Comment" type="hidden" />
+                    @Model.Comment
+                </div>
+            </div>
+        }
+        <div class="form-group">
+            <input type="submit" value="Confirm" class="btn btn-primary" />
+            <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Index">Cancel</a>
+        </div>
+     </div>
+</form>
+
+
