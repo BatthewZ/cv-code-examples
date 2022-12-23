@@ -103,7 +103,7 @@ export const AttackOrSpell: React.FC<AttackOrSpellProps> = ({
             setDiceModal(
               true,
               <DiceRollView
-                dmgRoll={rollDamage(attackOrSpell.dmg.numOfDice, attackOrSpell.dmg.typeOfDice, +damageModifier)}
+                diceRoll={rollDamage(attackOrSpell.dmg.numOfDice, attackOrSpell.dmg.typeOfDice, +damageModifier)}
               />
             );
           }}

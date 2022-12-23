@@ -3,15 +3,33 @@ import {calcModifier} from '../../../helper/calculateModifier';
 import {capitalizeAllFirstLetters} from '../../../helper/stringFormatters';
 import {EditableText} from '../../inputs/EditableText';
 import {AttributeType} from '../../../types/types';
+import {rollD20} from '../../../helper/rollD20';
+import {DiceRollView} from '../../miscUI/diceRollView';
 
 type AttributeProps = {
   updateState: Function;
   value: number | string;
   name: AttributeType;
+  setDiceModal: Function;
 };
 
-export const Attribute: React.FC<AttributeProps> = ({name, updateState, value}: AttributeProps) => {
+export const Attribute: React.FC<AttributeProps> = ({name, updateState, value, setDiceModal}: AttributeProps) => {
   const [modifier, setModifier] = useState<number>(value ? calcModifier('' + value) : 0);
+
+  function rollDice() {
+    const roll = rollD20(modifier);
+    setDiceModal(
+      true,
+      <DiceRollView
+        diceRoll={{
+          log: `Roll: ${roll.roll}\nModifier: ${roll.modifier}`,
+          total: roll.total,
+        }}
+        totalMsg={`${name} Roll`}
+        calculationMsg='Calculation'
+      />
+    );
+  }
 
   return (
     <div className='attribute'>
@@ -43,6 +61,14 @@ export const Attribute: React.FC<AttributeProps> = ({name, updateState, value}: 
           placeholder=' '
         />
         Modifier: {modifier}
+        <br />
+        <button
+          onClick={() => {
+            rollDice();
+          }}
+        >
+          Roll
+        </button>
       </fieldset>
     </div>
   );

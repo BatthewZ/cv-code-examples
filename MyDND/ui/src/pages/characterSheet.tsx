@@ -14,6 +14,8 @@ import {EditableArray} from '../components/inputs/EditableArray';
 import {deleteCharacter, updateCharacter} from '../apiCalls/apiCalls';
 import {DeleteButton} from '../components/miscUI/deleteButton';
 import {LoadingModal} from '../components/miscUI/loadingModal';
+import {RollButton} from '../components/miscUI/rollButton';
+import {RollToHit} from '../components/charSheetViews/combatStatistics/rollToHit';
 
 type ViewState = 'Attributes' | 'Character Info' | 'Combat Statistics' | 'Inventory' | 'Dice' | 'Notes' | undefined;
 
@@ -38,6 +40,14 @@ export const CharacterSheet: React.FC<CharSheetProps> = ({character, toCharacter
   const [wisdom, setWisdom] = useState(character.attributes.wisdom);
   const [charisma, setCharisma] = useState(character.attributes.charisma);
   const [proficiencyBonus, setProficiencyBonus] = useState(character.proficiencyBonus);
+  // const [allAttributes, setAllAttributes] = useState<{[index: string]: string}>({
+  //   strength: strength,
+  //   dexterity: dexterity,
+  //   constitution: constitution,
+  //   intelligence: intelligence,
+  //   charisma: charisma,
+  //   wisdom: wisdom,
+  // });
 
   // Character info:
   const [charName, setCharName] = useState(character.charInfo.charName);
@@ -293,8 +303,8 @@ export const CharacterSheet: React.FC<CharSheetProps> = ({character, toCharacter
     {onClick: () => setView('Combat Statistics'), value: 'Combat Statistics'},
     {onClick: () => setView('Character Info'), value: 'Character Info'},
     {onClick: () => setView('Inventory'), value: 'Inventory'},
-    {onClick: () => setView('Dice'), value: 'Dice'},
     {onClick: () => setView('Notes'), value: 'Notes'},
+    {onClick: () => setView('Dice'), value: 'Dice'},
   ];
 
   function updateModal(openModal = false, modalContent?: JSX.Element) {
@@ -357,6 +367,7 @@ export const CharacterSheet: React.FC<CharSheetProps> = ({character, toCharacter
             intelligence={intelligence}
             wisdom={wisdom}
             charisma={charisma}
+            setDiceModal={updateModal}
           />
         </>
       ) : (
@@ -417,13 +428,21 @@ export const CharacterSheet: React.FC<CharSheetProps> = ({character, toCharacter
                 title={'Armour Class'}
                 inputType='number'
               />
-              <EditableText
-                fieldName={'initiative'}
-                value={initiative + ''}
-                confirmEdit={setInitiative}
-                title={'Initiative'}
-                inputType='number'
-              />
+              <div>
+                <EditableText
+                  fieldName={'initiative'}
+                  value={initiative + ''}
+                  confirmEdit={setInitiative}
+                  title={'Initiative'}
+                  inputType='number'
+                />
+                <RollButton
+                  modifier={+initiative}
+                  totalMsg='Initiative'
+                  calculationMsg='Calculations'
+                  setDiceModal={updateModal}
+                />
+              </div>
               <EditableText
                 fieldName={'speed'}
                 value={speed + ''}
@@ -463,6 +482,11 @@ export const CharacterSheet: React.FC<CharSheetProps> = ({character, toCharacter
               />
             </fieldset>
             <fieldset className='column centerChildren spaceEvenly'>
+              <p>
+                <strong>Roll to Hit:</strong>
+              </p>
+              {/* <RollToHit setDiceModal={updateModal} allAttributes={allAttributes} /> */}
+              <RollToHit setDiceModal={updateModal} getAttributeState={getAttributeState} />
               <p>
                 <strong>Weapons:</strong>
               </p>
@@ -508,14 +532,17 @@ export const CharacterSheet: React.FC<CharSheetProps> = ({character, toCharacter
       ) : (
         ''
       )}
-      {view === 'Dice' ? <DiceView setDiceModal={updateModal} /> : ''}
+
       {view === 'Notes' ? (
-        <div className='column fadeInOnLoad'>
-          <EditableText fieldName={''} value={notes} confirmEdit={setNotes} className='notes' inputType='textarea' />
+        <div className='column fadeInOnLoad centerChildren'>
+          <div className='padding10'>
+            <EditableText fieldName={''} value={notes} confirmEdit={setNotes} className='notes' inputType='textarea' />
+          </div>
         </div>
       ) : (
         ''
       )}
+      {view === 'Dice' ? <DiceView setDiceModal={updateModal} /> : ''}
     </div>
   );
 };

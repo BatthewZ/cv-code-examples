@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {rollDamage} from '../../../helper/rollDamage';
-import {DiceType} from '../../../types/types';
+import {AttributeType, DiceType} from '../../../types/types';
 import {DiceRollView} from '../../miscUI/diceRollView';
 
 type DiceViewProps = {
@@ -9,7 +9,7 @@ type DiceViewProps = {
 
 export const DiceView: React.FC<DiceViewProps> = ({setDiceModal}: DiceViewProps) => {
   const [numOfDice, setNumOfDice] = useState(1);
-  const [diceType, setDiceType] = useState<DiceType>(6);
+  const [diceType, setDiceType] = useState<DiceType>(20);
 
   function updateNumOfDice(num: number) {
     const input = document.getElementById('numOfDice-Input') as HTMLInputElement;
@@ -46,7 +46,7 @@ export const DiceView: React.FC<DiceViewProps> = ({setDiceModal}: DiceViewProps)
             onClick={() => {
               setDiceType(dice);
             }}
-            defaultChecked={dice === 6}
+            defaultChecked={dice === diceType}
           />
           <label htmlFor={id}>d{dice}</label>
         </>
@@ -81,7 +81,7 @@ export const DiceView: React.FC<DiceViewProps> = ({setDiceModal}: DiceViewProps)
       <p></p>
       <button
         onClick={() => {
-          setDiceModal(true, <DiceRollView dmgRoll={rollDamage(numOfDice, diceType)} />);
+          setDiceModal(true, <DiceRollView diceRoll={rollDamage(numOfDice, diceType)} />);
         }}
       >
         Roll

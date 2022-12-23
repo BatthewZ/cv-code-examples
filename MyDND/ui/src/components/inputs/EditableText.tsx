@@ -45,11 +45,11 @@ export const EditableText: React.FC<EditableTextProps> = ({
                 setTextState(e.target.value && e.target.value.trim() ? e.target.value : '');
               }}
               defaultValue={value}
-              rows={6}
+              rows={15}
               onKeyDown={(e) => {
                 if (e.key === 'Escape') toggleEditMode();
               }}
-            ></textarea>
+            />
           ) : (
             <div className='row centerChildren'>
               <input

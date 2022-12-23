@@ -22,6 +22,7 @@ type ViewProps = {
   intelligence: string;
   wisdom: string;
   charisma: string;
+  setDiceModal: Function;
 };
 
 export const AttributesView: React.FC<ViewProps> = (props) => {
@@ -43,16 +44,27 @@ export const AttributesView: React.FC<ViewProps> = (props) => {
     intelligence,
     wisdom,
     charisma,
+    setDiceModal,
   } = props;
   return (
     <div className='column centerChildren fadeInOnLoad'>
       <div className='attributes rowWrap spaceEvenly'>
-        <Attribute updateState={setStrength} value={strength} name={'Strength'} />
-        <Attribute updateState={setDexterity} value={dexterity} name={'Dexterity'} />
-        <Attribute updateState={setConstitution} value={constitution} name={'Constitution'} />
-        <Attribute updateState={setIntelligence} value={intelligence} name={'Intelligence'} />
-        <Attribute updateState={setWisdom} value={wisdom} name={'Wisdom'} />
-        <Attribute updateState={setCharisma} value={charisma} name={'Charisma'} />
+        <Attribute updateState={setStrength} value={strength} name={'Strength'} setDiceModal={setDiceModal} />
+        <Attribute updateState={setDexterity} value={dexterity} name={'Dexterity'} setDiceModal={setDiceModal} />
+        <Attribute
+          updateState={setConstitution}
+          value={constitution}
+          name={'Constitution'}
+          setDiceModal={setDiceModal}
+        />
+        <Attribute
+          updateState={setIntelligence}
+          value={intelligence}
+          name={'Intelligence'}
+          setDiceModal={setDiceModal}
+        />
+        <Attribute updateState={setWisdom} value={wisdom} name={'Wisdom'} setDiceModal={setDiceModal} />
+        <Attribute updateState={setCharisma} value={charisma} name={'Charisma'} setDiceModal={setDiceModal} />
       </div>
       <div>
         <hr />

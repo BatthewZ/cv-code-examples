@@ -1,16 +1,11 @@
 import {DiceType} from '../types/types';
 
-export type DamageRoll = {
+export type DiceRoll = {
   log: string;
-  dmg: number;
+  total: number;
 };
 
-export function rollDamage(
-  numOfDice: number,
-  typeOfDice: DiceType,
-  dmgModifier = 0,
-  attributeModifier = 0
-): DamageRoll {
+export function rollDamage(numOfDice: number, typeOfDice: DiceType, dmgModifier = 0, attributeModifier = 0): DiceRoll {
   let dmg = dmgModifier + attributeModifier;
 
   let log = `Damage modifier: ${dmgModifier} \nAttribute Bonus: ${attributeModifier}`;
@@ -25,6 +20,6 @@ export function rollDamage(
 
   return {
     log: log,
-    dmg: dmg,
+    total: dmg,
   };
 }

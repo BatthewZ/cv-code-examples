@@ -1,20 +1,28 @@
-import {DamageRoll} from '../../helper/rollDamage';
+import {DiceRoll} from '../../helper/rollDamage';
 
 type DiceRollProps = {
-  dmgRoll: DamageRoll;
+  diceRoll: DiceRoll;
+  totalMsg?: string;
+  calculationMsg?: string;
 };
 
-export const DiceRollView: React.FC<DiceRollProps> = ({dmgRoll}: DiceRollProps) => {
+export const DiceRollView: React.FC<DiceRollProps> = ({
+  diceRoll,
+  totalMsg = 'Total Damage',
+  calculationMsg = 'Damage Calculation',
+}: DiceRollProps) => {
   function formatDmgLog() {
-    return dmgRoll.log.split('\n').map((row) => <p>{row}</p>);
+    return diceRoll.log.split('\n').map((row) => <p>{row}</p>);
   }
   return (
     <div className='modalBlurb'>
       <div className='row centerChildren'>
-        <h2>Total Damage: {dmgRoll.dmg}</h2>
+        <h2>
+          {totalMsg}: {diceRoll.total}
+        </h2>
       </div>
       <div className='modalBlurbContent'>
-        <h3>Damage Calculation:</h3>
+        <h3>{calculationMsg}:</h3>
         {formatDmgLog()}
       </div>
     </div>

@@ -134,7 +134,7 @@ export const Weapon: React.FC<WeaponProps> = ({
             setDiceModal(
               true,
               <DiceRollView
-                dmgRoll={rollDamage(
+                diceRoll={rollDamage(
                   weapon.dmg.numOfDice,
                   weapon.dmg.typeOfDice,
                   weapon.dmg.dmgMod,
