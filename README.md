@@ -10,7 +10,7 @@ A project for the University of New South Wales, working with Katelyn Purnell to
 
 Cloud Computing University Assignment - NodeJS, Express, React, Typescript, Recharts using AWS Services : Lambda, API Gateway, DynamoDB, S3, Elastic Beanstalk.
 
-- App Demo Video: https://youtu.be/v_SgbDlyPaI
+- _App Demo Video:_ https://youtu.be/v_SgbDlyPaI
 - Login and register pages
 - User portal
 - Lesson Creator page
@@ -40,7 +40,7 @@ Web Development Technologies University Assignment - C# MVC/MVVM project using A
 A team buff calculator for Grim Dawn characters - NodeJS, React Typescript, Puppeteer
 A tool that webscrapes a [Grim Dawn](https://www.grimdawn.com/) character mockup from third party tool [GrimTools (example link)](https://www.grimtools.com/calc/D2pOrpJN), and calculates and categorises all buffs and team buffs that the character provides. To preview the tool, copy this URL (https://www.grimtools.com/calc/D2pOrpJN) and paste it inside the live link below:
 
-- Live Link: https://getgrimdawn.uc.r.appspot.com/
+- _Live Link:_ https://getgrimdawn.uc.r.appspot.com/
 
 ### Google Apps Invoicer
 
@@ -48,15 +48,15 @@ A script I built to assist me with invoicing my private piano students. Built to
 
 ### MyDND: Keep Your 5e Character Sheets Sorted Online!
 
-A barebones, virtually-unstyled Dungeons ‘n’ Dragons 5th Edition character sheet app that lets users register or login, create using NodeJS, ReactJS, Typescript, Google App Engine and Firestore.
+A barebones, virtually-unstyled Dungeons ‘n’ Dragons 5th Edition character sheet app that lets users register or login, create using NodeJS, ReactJS, Typescript, Google App Engine and Firestore. Preview images available in repo folder.
 
-- Live link (admin register key available on request): https://mydnd-370713.ts.r.appspot.com/
+- _Live link (admin register key available on request):_ https://mydnd-370713.ts.r.appspot.com/
 
 ### Lunardo Cinema
 
 Web Programming University Assignment - HTML, CSS, Javascript, PHP
 
-- Live link: https://titan.csit.rmit.edu.au/~s3851558/wp/a4/
+- _Live link:_ https://titan.csit.rmit.edu.au/~s3851558/wp/a4/
 - Highly stylised Responsive webpage with contrasting sections, driven primarily by HTML and CSS.
 - Clientside and serverside validation of user input data
 - Uses session data, POST/GET HTTP form methods
