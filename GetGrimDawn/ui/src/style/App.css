@@ -1,0 +1,146 @@
+html {
+  color: white;
+  background-color: black;
+}
+
+.App {
+  text-align: center;
+  /* color: white;
+  background-color: black; */
+}
+
+.h3 {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+fieldset {
+  border: 1px solid white;
+  border-radius: 6px;
+  margin: 3px;
+  margin-inline: 5px;
+}
+
+details {
+  text-align: left;
+  margin: 3px;
+  margin-inline: 5px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.397);
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+  animation: fadeInOnLoad 0.8s;
+}
+
+details > p {
+  animation: fadeInOnLoad 0.8s;
+}
+
+details:hover {
+  border-color: white;
+}
+
+summary:active {
+  opacity: 0.4;
+}
+
+summary:hover {
+  cursor: pointer;
+}
+
+a,
+.linkText {
+  color: white;
+  text-decoration: underline;
+  margin-inline: 0.2em;
+}
+
+a,
+.linkText:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+a,
+.linkText:active {
+  opacity: 0.4;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.center {
+  text-align: center;
+  justify-content: center;
+}
+
+.spaceEvenly {
+  justify-content: space-evenly;
+}
+
+.spaceBetween {
+  justify-content: space-between;
+}
+.spaceAround {
+  justify-content: space-around;
+}
+
+.errMsg {
+  font-weight: bold;
+  color: red;
+}
+
+.width50 {
+  width: 50%;
+}
+
+.textLeft {
+  text-align: left;
+}
+
+.textJustify {
+  text-align: justify;
+}
+
+.benefitsColumn {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 3px;
+  margin-inline: 5px;
+  text-align: left;
+  padding-left: 10px;
+  animation: fadeInOnLoad 0.8s ease-in-out;
+}
+
+.fadeInOnLoad {
+  animation: fadeInOnLoad 0.8s ease-in-out;
+}
+
+.getCharInput {
+  width: 80%;
+}
+
+.centerChildren {
+  align-items: center;
+}
+
+@keyframes fadeInOnLoad {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
