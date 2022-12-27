@@ -38,7 +38,7 @@ Web Development Technologies University Assignment - C# MVC/MVVM project using A
 ### GetGrimDawn
 
 A team buff calculator for Grim Dawn characters - NodeJS, React Typescript, Puppeteer
-A tool that webscrapes a [Grim Dawn](https://www.grimdawn.com/) character mockup from third party tool [GrimTools (example link)](https://www.grimtools.com/calc/D2pOrpJN), and calculates and categorises all buffs and team buffs that the character provides.
+A tool that webscrapes a [Grim Dawn](https://www.grimdawn.com/) character mockup from third party tool [GrimTools (example link)](https://www.grimtools.com/calc/D2pOrpJN), and calculates and categorises all buffs and team buffs that the character provides. To preview the tool, copy this URL ( https://www.grimtools.com/calc/D2pOrpJN ) and paste it inside the live link below:
 
 - Live Link: https://getgrimdawn.uc.r.appspot.com/
 
