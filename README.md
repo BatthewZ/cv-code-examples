@@ -2,6 +2,16 @@
 
 Here is a brief description of each of these projects:
 
+### GetGrimDawn
+
+A team buff calculator for Grim Dawn characters - **NodeJS, React Typescript, Puppeteer, Google App Engine**
+
+A tool that webscrapes a [Grim Dawn](https://www.grimdawn.com/) character mockup from third party tool [GrimTools (example link)](https://www.grimtools.com/calc/D2pOrpJN), and calculates and categorises all buffs and team buffs that the character provides. This tool is also now being designed to integrate with two other programs that other programmers have built. Some of the functionality of GetGrimDawn is implemented at the benefit to other services.
+
+To preview the tool, copy this URL (https://www.grimtools.com/calc/D2pOrpJN) and paste it inside the live link below:
+
+- **Live Link:** https://getgrimdawn.uc.r.appspot.com/
+
 ### Ebus Tool (WIP)
 
 A project for the University of New South Wales, working with Katelyn Purnell to develop her tool for estimating energy requirements of electric vehicles for public transport in Australia (Read more here: https://doi.org/10.1016/j.apenergy.2021.118272). The project will be open source, but for the moment I do not have permission to share the full project publically. But, here is part of the UI and the interfacing server. This UI has limited repsonsivity, as it is only ever intended to be run locally on computers, and never on tablets/phones. Some of the calculations that the full app performs can take hours due to large data sets.
@@ -34,14 +44,6 @@ Web Development Technologies University Assignment - **C# MVC/MVVM project using
 - Dependency injection
 - Nested SQL queries using multiple join types across tables
 - Data seeding
-
-### GetGrimDawn
-
-A team buff calculator for Grim Dawn characters - **NodeJS, React Typescript, Puppeteer, Google App Engine**
-
-A tool that webscrapes a [Grim Dawn](https://www.grimdawn.com/) character mockup from third party tool [GrimTools (example link)](https://www.grimtools.com/calc/D2pOrpJN), and calculates and categorises all buffs and team buffs that the character provides. To preview the tool, copy this URL (https://www.grimtools.com/calc/D2pOrpJN) and paste it inside the live link below:
-
-- **Live Link:** https://getgrimdawn.uc.r.appspot.com/
 
 ### MyDND: Keep Your 5e Character Sheets Sorted Online!
 
