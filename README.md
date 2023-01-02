@@ -8,7 +8,7 @@ A project for the University of New South Wales, working with Katelyn Purnell to
 
 ### Lesson Builder: Create and Share Music Lessons
 
-Cloud Computing University Assignment - **NodeJS, Express, React, Typescript, Recharts using AWS Services : Lambda, API Gateway, DynamoDB, S3, Elastic Beanstalk.**
+Cloud Computing University Assignment - **NodeJS, Express, React, Typescript, Recharts, AWS Services : Lambda, API Gateway, DynamoDB, S3, Elastic Beanstalk.**
 
 - **App Demo Video:** https://youtu.be/v_SgbDlyPaI
 - Login and register pages
