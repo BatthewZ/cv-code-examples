@@ -1,4 +1,4 @@
-export type BuffRegex = 'resistance' | 'armor' | 'oaAndDa' | 'healing' | 'health' | 'speed' | 'dmg';
+export type BuffRegex = 'resistance' | 'armor' | 'oaAndDa' | 'healing' | 'health' | 'speed' | 'dmg' | 'retaliation';
 export function buffRegex(buffType: BuffRegex) {
   switch (buffType) {
     case 'resistance':
@@ -15,6 +15,8 @@ export function buffRegex(buffType: BuffRegex) {
       return /^\+\d+% [a-zA-Z]+ (Speed)$/;
     case 'dmg':
       return /^((\+\d+(\/\+\d+)?)|(\d+\-?\d+?))%? [a-zA-Z ]+ (Decay|Damage)(( with)[a-zA-Z0-9%\+ ]+)?$/;
+    case 'retaliation':
+      return /^[0-9\-]+ [^Seconds][a-zA-Z ]+(Retaliation)$/;
   }
 }
 

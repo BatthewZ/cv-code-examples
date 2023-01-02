@@ -34,7 +34,7 @@ export const CharacterOverview: React.FC<COProps> = ({character, deleteChar}) =>
 
   return (
     <fieldset className='characterOverview'>
-      <h2>Character Overview: {character.classes.map((c) => c + ' ')}</h2>
+      <h2>Character Overview: {character.classes.map((c) => c.name + ' ')}</h2>
       <div>
         <a href={character.url} target='_blank'>
           View build in Grimtools

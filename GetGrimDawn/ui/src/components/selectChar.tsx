@@ -14,7 +14,7 @@ export const SelectCharacter: React.FC<SCProps> = ({characters, onChange}) => {
 
     const class2 = char.classes[1];
 
-    return `${class1}${class2 ? ' + ' + class2 : ''}`;
+    return `${class1.name}${class2 ? ' + ' + class2.name : ''}`;
   }
 
   function mapOptions() {

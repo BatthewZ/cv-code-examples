@@ -1,4 +1,4 @@
-import {Character} from '../types/types';
+import {Character, Item} from '../types/types';
 
 export function convertJsonToChar(data: any) {
   if (
@@ -14,6 +14,7 @@ export function convertJsonToChar(data: any) {
   }
 
   const char: Character = {
+    classNames: [],
     classes: [],
     items: data.items,
     devotions: data.devotions,
@@ -30,7 +31,7 @@ export function convertJsonToChar(data: any) {
 
   for (const charClass of data.classes) {
     // console.log(charClass);
-    char.classes.push(charClass.name);
+    char.classNames.push(charClass.name);
   }
 
   // console.log(char);

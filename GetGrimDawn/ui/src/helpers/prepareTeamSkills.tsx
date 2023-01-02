@@ -17,6 +17,7 @@ export function prepareTeamSkills(character: Character) {
     // A skill can be both a 'team skill' and a 'healing skill'.
     for (const skill of skillsArray) {
       if (!skill.details) skill.details = '';
+
       // Prevent "damage to enemies" from being considered "damage buff to allies"
       // from these skills:
       if (skill.name === 'Inquisitor Seal') {
@@ -24,19 +25,39 @@ export function prepareTeamSkills(character: Character) {
       }
       if (skill.name === 'Wendigo Totem') {
         skill.details = skill.details.split('Life Tap')[0];
+        skill.details = skill.details.replaceAll('Vitality Damage', 'Vitality Dmg');
+
+        // Handle Dark One's set bonus (extra wendigo totem):
+        const modifiers = skill.details.split('Item skill modifiers\n')[1];
+        if (modifiers) {
+          if (modifiers.includes('1 Summon Limit')) {
+            skill.details = doubleHealthRestoredValues(skill);
+          }
+        }
+      }
+      if (skill.name === `Olexra's Flash Freeze` || skill.name === 'Absolute Zero') {
+        skill.details = skill.details.replaceAll('Cold Damage', 'Cold Dmg');
+      }
+
+      if (skill.name === 'Hungering Void') skill.details = skill.details.split('\nBonus to All Pets')[0];
+
+      // Handle Bysmiel's Set bonus: Double healing values if there are two familiars.
+      if (skill.name === 'Mend Flesh') {
+        const summonFamiliar = findSkill('Summon Familiar', character.skills);
+        if (summonFamiliar) {
+          const modifiers = summonFamiliar.details.split('Item skill modifiers\n')[1];
+          if (modifiers) {
+            if (modifiers.includes('1 Summon Limit')) {
+              skill.details = doubleHealthRestoredValues(skill);
+            }
+          }
+        }
       }
 
       // Pet auras
       if (skill.name === 'Emboldening Presence') teamSkills.push(skill);
       if (skill.name === 'Hellfire') teamSkills.push(skill);
       if (skill.name === 'Storm Spirit') teamSkills.push(skill);
-
-      if (skill.name === 'Mend Flesh') {
-        const summonFamiliar = findSkill('Summon Familiar', character.skills);
-        if (summonFamiliar?.details.includes('+1 Summon\n1 Summon Limit')) {
-          skill.details = doubleMendFleshValues(skill);
-        }
-      }
 
       // Determine healing skills:
       if (
@@ -138,6 +159,7 @@ export function prepareTeamSkills(character: Character) {
 }
 
 function isTeamBuff(skill: Skill): boolean {
+  if (skill.name === `Olexra's Flash Freeze`) return false;
   if (skill.details.includes('Meter Radius')) {
     const chopInfo = skill.details.split('Meter Radius')[0];
     const infoRows = chopInfo.split('\n');
@@ -158,18 +180,22 @@ function getApothecarySetBuff(): Skill {
   };
 }
 
-function doubleMendFleshValues(skill: Skill) {
+function doubleHealthRestoredValues(skill: Skill) {
   const infoRows = skill.details.split('\n');
   let details = '';
   for (const row of infoRows) {
     if (row.includes('Health Restored')) {
-      // Double values in row, example:
+      // --- Double values in row, examples:
+
       // "12% + 465 Health Restored"
-      const val1 = +row.split('%')[0] * 2;
-      const val2 = +row.split('% + ')[1].split(' ')[0] * 2;
-      details += `${val1}% + ${val2} Health Restored`;
+      // "3% Health Restored"
+
+      const val1 = +row.split('%')[0] * 2 + '%';
+      // const val2 = +row.split('% + ')[1].split(' ')[0] * 2;
+      const val2 = row.includes('% + ') ? ' + ' + +row.split('% + ')[1].split(' ')[0] * 2 : '';
+      details += `${val1}${val2} Health Restored\n`;
     } else details += row + '\n';
   }
 
-  return details;
+  return details.trim();
 }

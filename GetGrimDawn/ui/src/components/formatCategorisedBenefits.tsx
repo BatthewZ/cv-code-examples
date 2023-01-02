@@ -27,10 +27,16 @@ export const FormattedBenefits: React.FC<FBProps> = ({cbs}) => {
     );
   }
 
+  function sortDmg() {
+    const retDmg = [...cbs.damage].filter((dmg) => dmg.damageType?.includes('Retaliation'));
+    const normalDmg = [...cbs.damage].filter((dmg) => !dmg.damageType?.includes('Retaliation'));
+    return [...normalDmg, ...retDmg];
+  }
+
   return (
     <div>
       {mapBenefits(cbs.oaDaCrit, 'OA, DA and Crit Damage')}
-      {mapBenefits(cbs.damage, 'Damage')}
+      {mapBenefits(sortDmg(), 'Damage')}
       {mapBenefits(cbs.healAndHealth, 'Healing and Health')}
       {mapBenefits(cbs.defensive, 'Defensive Buffs')}
       {mapBenefits(cbs.speed, 'Speed Buffs')}

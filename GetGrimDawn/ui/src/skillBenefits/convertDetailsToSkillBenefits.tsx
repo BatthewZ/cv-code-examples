@@ -57,6 +57,10 @@ export function convertDetailsToSkillBenefits(skillInfo: string): SkillBenefit[]
       skillBenefits.push(makeArmorBenefit(infoRow));
       continue;
     }
+    if (infoRow.match(buffRegex('retaliation'))) {
+      skillBenefits.push(makeDmgOrResSkillBenefit(infoRow));
+      continue;
+    }
   }
 
   // console.log('----------- Skil Benefit: ');

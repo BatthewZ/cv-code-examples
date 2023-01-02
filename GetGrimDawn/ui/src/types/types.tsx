@@ -1,5 +1,6 @@
 export type Character = {
-  classes: string[];
+  classNames: string[];
+  classes: Skill[];
   items: Item[];
   devotions: Skill[];
   skills: Skill[];
@@ -101,7 +102,7 @@ export type debuffs =
 
 export type SpeedType = 'Attack Speed' | 'Casting Speed' | 'Total Speed' | 'Movement Speed';
 
-export type DamageTypes =
+export type BaseDamageTypes =
   | 'Fire'
   | 'Cold'
   | 'Lightning'
@@ -123,7 +124,8 @@ export type DamageTypes =
   | 'Life Reduction'
   | 'Reflected'
   | 'Crit'
-  | 'All'
-  | 'All Retaliation'; // After incorporating RetaliationDamageTypes, remove this...
+  | 'All';
 
-export type RetaliationDamageTypes = `${DamageTypes} Retaliation`;
+export type RetaliationDamageTypes = `${BaseDamageTypes} Retaliation`;
+
+export type DamageTypes = BaseDamageTypes | RetaliationDamageTypes;

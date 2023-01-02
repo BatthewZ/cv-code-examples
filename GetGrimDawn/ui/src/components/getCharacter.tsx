@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {API_URL} from '../helpers/apiUrl';
 import {prepareTeamSkills} from '../helpers/prepareTeamSkills';
-import {Character} from '../types/types';
+import {Character, Item} from '../types/types';
 
 type GCIProps = {
   addCharacter: (char: Character) => void;
@@ -39,10 +39,18 @@ export const GetCharacterInput: React.FC<GCIProps> = ({addCharacter, numOfChars}
 
       if (response.errMsg) return setErrMsg(response.errMsg);
 
+      // Filter out "weapon2" and "weapon2alt" if weapon1 or weapon1alt is a two-handed weapon.
+      const weapon1 = response.items.find((item: Item) => item.slot === 'weapon1');
+      const weapon1alt = response.items.find((item: Item) => item.slot === 'weapon1alt');
+      if (weapon1 && weapon1.details.includes('Two-Handed'))
+        response.items = response.items.filter((item: Item) => item.slot !== 'weapon2');
+      if (weapon1alt && weapon1alt.details.includes('Two-Handed'))
+        response.items = response.items.filter((item: any) => item.slot !== 'weapon2alt');
+
       // Prepare character
       const classNames = response.classes.map((cl: any) => cl.name);
       const char = prepareTeamSkills(response);
-      char.classes = classNames;
+      char.classNames = classNames;
 
       if (!char)
         return setErrMsg('Something went wrong; We could not load the character. The program might be broken.');

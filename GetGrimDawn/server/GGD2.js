@@ -52,7 +52,7 @@ async function getGrimDawn(grimDawnURL) {
   });
 
   console.log('Getting devotions...');
-  const devotions = await page.evaluate(() => {
+  const devotionNodes = await page.evaluate(() => {
     return dumpDevotion();
   });
 
@@ -65,27 +65,19 @@ async function getGrimDawn(grimDawnURL) {
     skill.details = skill.details.split('\nCelestial Power')[0].trim();
   }
 
-  console.log(skills);
-
   const classes = [...skills].filter((skill) => helper.isClassName(skill.name));
   const associatedSkills = helper.associateParentAndChildSkills(
     skills.filter((skill) => !helper.isClassName(skill.name))
   );
-  const devotionSkills = helper.getDevotionSkills(devotions);
+  const devotionSkills = helper.getDevotionSkills(devotionNodes);
   items = helper.formatItems(items);
-
-  for (const skill of associatedSkills) {
-    console.log(skill.name);
-    for (const child of skill.children) {
-      console.log(' - ', child.name);
-    }
-  }
 
   const character = {
     classes: classes,
     attributes: attributes,
     skills: associatedSkills,
     devotions: devotionSkills,
+    devotionNodes: helper.mapDevotionNodes(devotionNodes),
     items: items,
     url: grimDawnURL,
   };

@@ -21,7 +21,13 @@ export const DetailsFactory: React.FC<DFProps> = ({character, viewType}) => {
     case 'Healing':
       return <BenefitsAndSkills skills={character.teamSkills.healingSkills} paragraph={healingSkillsParagraph()} />;
     case 'All Skills':
-      return <BenefitsAndSkills skills={character.teamSkills.allSkills} paragraph={allSkillsParagraph()} />;
+      return (
+        <BenefitsAndSkills
+          skills={character.teamSkills.allSkills}
+          paragraph={allSkillsParagraph()}
+          debuffsAsWell={character.teamSkills.debuffs}
+        />
+      );
     case 'Debuffs':
       return <BenefitsAndSkills skills={character.teamSkills.debuffs} paragraph={''} isDebuff={true} />;
     default:

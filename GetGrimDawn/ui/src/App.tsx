@@ -54,14 +54,6 @@ function App() {
 
   return (
     <div className='App'>
-      {/* <button onClick={loadTestChar}>Load test char</button>
-      <button
-        onClick={() => {
-          console.log(characters);
-        }}
-      >
-        View chars
-      </button> */}
       <GetCharacterInput addCharacter={updateCharacters} numOfChars={characters.length} />
       <SelectCharacter characters={characters} onChange={setSelectedChar} />
       {selectedChar ? <CharacterOverview deleteChar={removeCharacter} character={characters[selectedChar]} /> : ''}

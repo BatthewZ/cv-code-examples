@@ -39,12 +39,18 @@ function extractDmgOrResTypeFrom(infoRow: string, dmgOrRes: DamageOrResistance):
 
     return 'All';
   }
+
+  if (infoRow.includes('Physical Damage Retaliation')) return 'Physical Retaliation';
+
   //"+90% Internal Trauma Damage" > "Internal Trauma"
   return infoRow.split(dmgOrRes)[0].replaceAll(infoRow.split(' ')[0], '').trim() as DamageTypes;
 }
 
 export function makeDmgOrResSkillBenefit(infoRow: string): SkillBenefit {
-  const benefitType = infoRow.includes('Damage') || infoRow.includes('Decay') ? 'Damage' : 'Resistance';
+  const benefitType =
+    infoRow.includes('Damage') || infoRow.includes('Decay') || infoRow.includes('Retaliation')
+      ? 'Damage'
+      : 'Resistance';
   return {
     numType: flatOrPercentage(infoRow),
     value: extractDmgOrResValueFrom(infoRow),
