@@ -14,7 +14,8 @@ export const GetCharacterInput: React.FC<GCIProps> = ({addCharacter, numOfChars}
   const [loadingMsg, setLoadingMsg] = useState(<></>);
   const [loadButtonStyle, setLoadButtonStyle] = useState<React.CSSProperties>();
 
-  if (numOfChars >= 4) return <>You can only load a maximum of 4 characters.</>;
+  if (numOfChars >= 4)
+    return <>You can only load a maximum of 4 characters at once. Remove a character to load more.</>;
 
   function validateUrl() {
     setErrMsg('');

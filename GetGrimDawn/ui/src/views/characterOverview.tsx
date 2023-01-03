@@ -62,7 +62,7 @@ export const CharacterOverview: React.FC<COProps> = ({character, deleteChar}) =>
           ''
         )}
       </div>
-      <div>
+      <div className='charOverviewDetails'>
         <h2>{view}</h2>
         <DetailsFactory character={character} viewType={view} />
       </div>
