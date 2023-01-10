@@ -6,7 +6,7 @@ Here is a brief description of each of these projects:
 
 A team buff calculator for Grim Dawn characters - **NodeJS, React Typescript, Puppeteer, Google App Engine**
 
-A tool that webscrapes a [Grim Dawn](https://www.grimdawn.com/) character mockup from third party tool [GrimTools (example link)](https://www.grimtools.com/calc/D2pOrpJN), and calculates and categorises all buffs and team buffs that the character provides. This tool is also now being designed to integrate with two other programs that other programmers have built. Some of the functionality of GetGrimDawn is implemented at the benefit to other services.
+A tool that webscrapes [Grim Dawn](https://www.grimdawn.com/) character mockups from third party tool [GrimTools (example link)](https://www.grimtools.com/calc/D2pOrpJN), and calculates and categorises all debuffs and team buffs that the character provides. This tool is also now being designed to integrate with other programs that other programmers have built. Some of the functionality of GetGrimDawn is implemented at the benefit to these other services.
 
 To preview the tool, copy this URL (https://www.grimtools.com/calc/D2pOrpJN) and paste it inside the live link below:
 
@@ -20,7 +20,6 @@ A project for the University of New South Wales, working with Katelyn Purnell to
 
 Cloud Computing University Assignment - **NodeJS, Express, React, Typescript, Recharts, AWS Services : Lambda, API Gateway, DynamoDB, S3, Elastic Beanstalk.**
 
-- **App Demo Video:** https://youtu.be/v_SgbDlyPaI
 - Login and register pages
 - User portal
 - Lesson Creator page
@@ -28,8 +27,9 @@ Cloud Computing University Assignment - **NodeJS, Express, React, Typescript, Re
 - Search / Filter functionality for viewing lessons from other users
 - Lesson Viewer page with ‘get lesson link’ functionality to allow sharing of a lesson to anyone (even without registration).
 
+- **App Demo Video:** https://youtu.be/v_SgbDlyPaI
 A live link can be provided upon request (the project is currently offline due to AWS student account constraints).
-
+ 
 ### Pseudo Banking App
 
 Web Development Technologies University Assignment - **C# MVC/MVVM project using ASP.NET, EF Core and Azure SQL Server**
@@ -47,7 +47,7 @@ Web Development Technologies University Assignment - **C# MVC/MVVM project using
 
 ### MyDND: Keep Your 5e Character Sheets Sorted Online!
 
-A barebones, virtually-unstyled Dungeons ‘n’ Dragons 5th Edition character sheet app that lets users register or login, create using **NodeJS, ReactJS, Typescript, Google App Engine and Firestore.** Preview images available in repo folder.
+A barebones Dungeons ‘n’ Dragons 5th Edition character sheet app that lets users register or login, create using **NodeJS, ReactJS, Typescript, Google App Engine and Firestore.** Preview images available in repo folder.
 
 - **Live link (admin register key available on request):** https://mydnd-370713.ts.r.appspot.com/
 
