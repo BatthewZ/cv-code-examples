@@ -3,8 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using web_api.Data;
 
-// Don't forget to finish implementing the Login Freeze and the BillPay Freeze now that their status' are set.
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add DB context
@@ -21,7 +19,6 @@ builder.Services.AddScoped<DataManager>();
 builder.Services.AddControllers().AddJsonOptions(x => 
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
