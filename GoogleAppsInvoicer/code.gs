@@ -47,7 +47,6 @@ function promptUser(fname, sname){
 }
 
 function updateInvNum(stuSheet){
-
   // Update invoice number
   const date = new Date();
   const month = date.getMonth() + 1;
@@ -68,7 +67,6 @@ function updateInvNum(stuSheet){
 function saveData(student){
   const recSheet = ss.getSheetByName('InvRecords');
   const row = recSheet.getLastRow()+1;
-  
   const data = 
   [String(formatDate(new Date()))
   ,student.email
@@ -88,7 +86,6 @@ function invoiceTotal(student){
 }
 
 function setInvoiceValues(invSheet, student){
-  
   // Student
   invSheet.getRange("D12:D12").setValue(student.fname+" "+student.sname); 
   
@@ -123,7 +120,6 @@ function setInvoiceValues(invSheet, student){
       }
     }
   }
-
   // Total: H24
 }
 
@@ -132,7 +128,6 @@ function formatDate(inDate){
 }
 
 function getStudent(infoFromRange){ // prepare info as a student object
-     
   const student = {
     email : infoFromRange[0][0],
     fname : infoFromRange[0][1],
@@ -147,9 +142,6 @@ function getStudent(infoFromRange){ // prepare info as a student object
 }
 
 function createEmail(sEmail, sFName, msg, invoice){
-
-
-
   let emailBody = HtmlService.createHtmlOutputFromFile('BMInvoice').getContent();
   emailBody = emailBody.replace("##name", sFName);
   emailBody = emailBody.replace("##msg", msg);  
