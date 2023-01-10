@@ -6,3 +6,7 @@ Web Programming University Assignment - **HTML, CSS, Javascript, PHP**
 - Highly stylised Responsive webpage with contrasting sections, driven primarily by HTML and CSS.
 - Clientside and serverside validation of user input data
 - Uses session data, POST/GET HTTP form methods
+
+**Start here: wp/a4/index.php**
+
+Note: This assignment explicitly required me to keep much of the code in single, large files.
