@@ -20,7 +20,6 @@ A project for the University of New South Wales, working with Katelyn Purnell to
 
 Cloud Computing University Assignment - **NodeJS, Express, React, Typescript, Recharts, AWS Services : Lambda, API Gateway, DynamoDB, S3, Elastic Beanstalk.**
 
-- **App Demo Video:** https://youtu.be/v_SgbDlyPaI
 - Login and register pages
 - User portal
 - Lesson Creator page
@@ -28,8 +27,9 @@ Cloud Computing University Assignment - **NodeJS, Express, React, Typescript, Re
 - Search / Filter functionality for viewing lessons from other users
 - Lesson Viewer page with ‘get lesson link’ functionality to allow sharing of a lesson to anyone (even without registration).
 
+- **App Demo Video:** https://youtu.be/v_SgbDlyPaI
 A live link can be provided upon request (the project is currently offline due to AWS student account constraints).
-
+ 
 ### Pseudo Banking App
 
 Web Development Technologies University Assignment - **C# MVC/MVVM project using ASP.NET, EF Core and Azure SQL Server**
@@ -47,7 +47,7 @@ Web Development Technologies University Assignment - **C# MVC/MVVM project using
 
 ### MyDND: Keep Your 5e Character Sheets Sorted Online!
 
-A barebones, virtually-unstyled Dungeons ‘n’ Dragons 5th Edition character sheet app that lets users register or login, create using **NodeJS, ReactJS, Typescript, Google App Engine and Firestore.** Preview images available in repo folder.
+A barebones Dungeons ‘n’ Dragons 5th Edition character sheet app that lets users register or login, create using **NodeJS, ReactJS, Typescript, Google App Engine and Firestore.** Preview images available in repo folder.
 
 - **Live link (admin register key available on request):** https://mydnd-370713.ts.r.appspot.com/
 
