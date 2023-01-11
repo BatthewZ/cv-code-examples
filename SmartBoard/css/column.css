@@ -1,0 +1,51 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.column{
+	-fx-background-color: white;
+	-fx-background-radius: 15;	
+	-fx-border-radius: 15;
+	-fx-padding: 10;
+}
+
+.columnnametext{
+	-fx-fill: #2C8C99;
+	-fx-font-size: 22;
+	-fx-font-family: "Garamond";
+}
+
+.duedatetext{
+	-fx-fill: #28464B;
+	-fx-font-size: 20;
+	-fx-font-family: "Garamond";
+}
+
+.duedatetext:hover{
+	-fx-fill: #2C8C99;
+	-fx-underline: true;
+}
+
+.duedatetext:pressed{
+	-fx-fill: #28464B;
+}
+
+.columnnametext:hover{
+	-fx-underline: true;
+}
+
+.columnnametext:pressed{
+	-fx-fill: #28464B;
+}
+
+.addtext{
+	-fx-fill: #E5E5E5;
+	-fx-font-size: 20;
+	-fx-font-family: "Garamond";	
+}
+
+.addtext:hover{
+	-fx-fill: gray;
+}
+
+.addtext:pressed{
+	-fx-fill: #28464B;
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="bgPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="gradientbackground" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="whitetitletext" text="Welcome to Smart Board">
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin>
+         <effect>
+            <Glow />
+         </effect>
+      </Text>
+      <Text fx:id="cautionText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="maintext" textAlignment="CENTER" wrappingWidth="261.662109375" />
+      <Text fx:id="loginText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="maintext" text="Login:" wrappingWidth="185.044921875">
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin>
+      </Text>
+      <TextField fx:id="userLogin" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" styleClass="loginTextField" />
+      <Separator opacity="0.0" prefHeight="7.0" prefWidth="541.0" />
+      <Text fx:id="passwordText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="maintext" text="Password:" wrappingWidth="191.552734375">
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin>
+      </Text>
+      <PasswordField fx:id="userPass" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" styleClass="loginTextField">
+         <VBox.margin>
+            <Insets bottom="25.0" />
+         </VBox.margin>
+      </PasswordField>
+      <Button mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="90.0" text="Login">
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#signUp" prefHeight="26.0" prefWidth="90.0" text="Sign Up" />
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+   </padding>
+</VBox>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane fx:id="projectScroller" fitToHeight="true" fitToWidth="true" minHeight="690.0" style="-fx-border-width: 0px;" styleClass="gradientbackground" stylesheets="@../css/workspace.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProjectController">
+   <content>
+      <HBox fx:id="projectSpace" spacing="4.0" style="-fx-border-width: 0px;" styleClass="gradientbackground">
+         <children>
+            <VBox alignment="CENTER" maxHeight="56.0" maxWidth="56.0" minHeight="40.0" minWidth="40.0" onMouseClicked="#addNewColumn" prefHeight="56.0" prefWidth="56.0" styleClass="addcolumnbutton">
+               <children>
+                  <Text fill="#fafafa9b" strokeType="OUTSIDE" strokeWidth="0.0" text="+">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="3.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="4.0" left="4.0" top="4.0" />
+         </padding>
+      </HBox>
+   </content>
+   <padding>
+      <Insets top="-1.0" />
+   </padding>
+</ScrollPane>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="taskBody" focusTraversable="true" maxWidth="-Infinity" minWidth="-Infinity" onMouseEntered="#isNowSelected" onMouseExited="#isNoLongerSelected" prefHeight="200.0" prefWidth="380.0" styleClass="task" stylesheets="@../css/task.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TaskController">
+   <children>
+      <BorderPane prefHeight="19.0" prefWidth="358.0">
+         <left>
+            <Text fx:id="nameText" fontSmoothingType="LCD" onMouseClicked="#setTaskOverlayEdit" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="taskname" text="TaskName" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <Text onMouseClicked="#setTaskOverlayDelete" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="deltext" text="delete" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
+      <HBox maxHeight="1.7976931348623157E308" prefHeight="167.0" prefWidth="358.0">
+         <children>
+            <Text fx:id="descriptionText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Task Decription etc etc etc" wrappingWidth="311.5327606201172">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin></Text>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <top>
+                  <Text fx:id="upArrow" onMouseClicked="#moveUpInView" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="arrows" text="^" BorderPane.alignment="CENTER" />
+               </top>
+               <bottom>
+                  <Text fx:id="downArrow" onMouseClicked="#moveDownInView" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="arrows" text="^" BorderPane.alignment="CENTER" />
+               </bottom>
+            </BorderPane>
+         </children>
+      </HBox>
+   </children>
+</VBox>

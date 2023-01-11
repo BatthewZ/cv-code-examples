@@ -28,8 +28,8 @@ Cloud Computing University Assignment - **NodeJS, Express, React, Typescript, Re
 - Lesson Viewer page with ‘get lesson link’ functionality to allow sharing of a lesson to anyone (even without registration).
 
 - **App Demo Video:** https://youtu.be/v_SgbDlyPaI
-A live link can be provided upon request (the project is currently offline due to AWS student account constraints).
- 
+  A live link can be provided upon request (the project is currently offline due to AWS student account constraints).
+
 ### Pseudo Banking App
 
 Web Development Technologies University Assignment - **C# MVC/MVVM project using ASP.NET, EF Core and Azure SQL Server**
@@ -44,6 +44,17 @@ Web Development Technologies University Assignment - **C# MVC/MVVM project using
 - Dependency injection
 - Nested SQL queries using multiple join types across tables
 - Data seeding
+
+### SmartBoard
+
+Further Programming University Assignment - **Java MVC project using JavaFX and Sqlite**
+
+This is a 'Tello-Lite' type application, where users can register, log in, and create projects, with KanBan board styled columns and tasks. Tasks can be reordered or moved from column to column. All project state is accessed and stored in sqlite locally.
+
+- UI built in JavaFX / FXML
+- Connects to Sqlite
+- JUnit testing
+- Sqlite schemas and queries created in Java
 
 ### MyDND: Keep Your 5e Character Sheets Sorted Online!
 

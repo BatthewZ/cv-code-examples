@@ -1,0 +1,41 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.button { 
+   -fx-background-color: linear-gradient(#28464B, #2C8C99); 
+   -fx-background-radius: 9;
+   -fx-text-fill: white;
+   -fx-border-radius: 9;
+}
+
+.button:hover{
+	-fx-background-color: linear-gradient(#2C8C99, #FBFEF9);
+	-fx-text-fill: #28464B;
+}
+
+.button:pressed{
+	-fx-background-color: linear-gradient(#28464B, #2C8C99); 
+	-fx-background-radius: 9;
+	-fx-text-fill: white;
+	-fx-border-color: white;
+	-fx-border-radius: 9;
+	
+}
+
+.maintext {
+	-fx-fill: #28464B;
+}
+
+.whitetitletext{
+	-fx-fill: white;
+	-fx-font-size: 24;
+}
+
+.gradientbackground{
+	-fx-background-color: linear-gradient(#2C8C99, #FBFEF9);
+}
+
+.loginTextField{
+	-fx-background-radius: 9;
+	-fx-border-color: #28464B;
+	-fx-border-radius: 9;
+}

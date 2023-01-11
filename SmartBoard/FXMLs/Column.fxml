@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="columnBody" alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" spacing="3.0" styleClass="column" stylesheets="@../css/column.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ColumnController">
+   <children>
+      <BorderPane maxHeight="-Infinity" prefHeight="25.0" prefWidth="382.0">
+         <right>
+            <HBox alignment="TOP_CENTER" prefHeight="40.0" prefWidth="98.0" BorderPane.alignment="TOP_CENTER">
+               <children>
+                  <Text onMouseClicked="#createNewTask" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="addtext" text="Add">
+                     <HBox.margin>
+                        <Insets top="1.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text onMouseClicked="#deleteColumnOverlay" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="addtext" text="Delete">
+                     <HBox.margin>
+                        <Insets left="4.0" top="1.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+         </right>
+         <left>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Text fx:id="columnName" onMouseClicked="#editColumnOverlay" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="columnnametext" text="ColumnName" wrappingWidth="283.2255859375" />
+               </children>
+            </VBox>
+         </left>
+      </BorderPane>
+   </children>
+   <padding>
+      <Insets top="3.0" />
+   </padding>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</VBox>

@@ -1,0 +1,75 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.task{
+	-fx-background-color: white;
+	-fx-background-radius: 12;	
+	-fx-border-width: 1px;
+	-fx-border-color: #2C8C99;
+	-fx-border-radius: 12;
+	-fx-padding: 10;
+}
+
+.taskname{
+	-fx-fill: #28464B;
+	-fx-font-size: 20;
+	-fx-font-family: "Garamond";
+}
+
+.taskname:hover{
+	-fx-fill: #2C8C99;
+	-fx-underline: true;
+}
+
+.taskname:pressed{
+	-fx-fill: #28464B;
+}
+
+.arrows{
+	-fx-fill: #28464B;
+	-fx-font-size: 32;
+	-fx-font-family: "Garamond";
+}
+
+.arrows:hover{
+	-fx-fill: #2C8C99;
+	-fx-font-size: 40;
+}
+
+.arrows:pressed{
+	-fx-fill: #28464B;
+}
+
+.duedate{
+	-fx-fill: #28464B;
+	-fx-font-size: 20;
+	-fx-font-family: "Garamond";	
+}
+
+.duedate:hover{
+	-fx-fill: #2C8C99;
+	-fx-underline: true;
+}
+
+.duedate:pressed{
+	-fx-fill: #28464B;
+}
+
+.description{
+	-fx-fill: #2C8C99;
+	-fx-font-family: "Garamond";
+	-fx-font-size: 16;
+}
+
+.deltext{
+	-fx-fill: #E5E5E5;
+	-fx-font-size: 20;
+	-fx-font-family: "Garamond";	
+}
+
+.deltext:hover{
+	-fx-fill: gray;
+}
+
+.deltext:pressed{
+	-fx-fill: #28464B;
+}

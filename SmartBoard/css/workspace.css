@@ -1,0 +1,130 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.button { 
+   -fx-background-color: linear-gradient(#28464B, #2C8C99); 
+   -fx-background-radius: 9;
+   -fx-text-fill: white;
+   -fx-border-radius: 9;
+}
+
+.circleimg{
+    -fx-fill: #28464B;
+}
+
+.button:hover{
+	-fx-background-color: linear-gradient(#2C8C99, #FBFEF9);
+	-fx-text-fill: #28464B;
+}
+
+.button:pressed{
+	-fx-background-color: linear-gradient(#28464B, #2C8C99); 
+	-fx-background-radius: 9;
+	-fx-text-fill: white;
+	-fx-border-color: white;
+	-fx-border-radius: 9;
+	
+}
+
+.projecttitletext {
+	-fx-fill: white;
+	-fx-font-size: 26;
+	-fx-font-family: "Garamond";
+	
+}
+
+.projecttitletext:pressed {
+	-fx-fill: #28464B;
+}
+
+.projecttitletext:hover {
+	-fx-underline: true;
+}
+
+.quotetext {
+	-fx-fill: white;
+	-fx-font-size: 14;
+	-fx-font-family: "Arial";
+}
+
+.circle{
+
+}
+
+.circle:hover{
+	-fx-stroke: white;
+	-fx-stroke-width: 2px;
+	
+}
+
+.circle:pressed{
+		-fx-fill: white;
+}
+
+.usernametext{
+	-fx-fill: #28464B;
+	-fx-font-size: 24;
+	-fx-font-family: "Garamond";
+	
+}
+
+.usernametext:pressed {
+	-fx-fill: white;
+}
+
+.usernametext:hover {
+	-fx-underline: true;
+}
+
+.addcolumnbutton{
+	-fx-background-radius: 10;
+	-fx-background-color:  rgba(44,140,153,.2);
+	-fx-border-color: rgba(251,254,249,.2); 
+	-fx-border-radius: 10; 
+	-fx-font-color: rgba(251,254,249,.2);
+}
+
+.addcolumnbutton:hover{
+	-fx-background-color:  rgba(44,140,153,1);
+	-fx-border-color: rgba(251,254,249,1);
+	-fx-font-color: rgba(251,254,249,1);
+}
+
+.addcolumnbutton:pressed{
+	-fx-background-color: linear-gradient(#2C8C99, #FBFEF9);
+}
+
+.gradientbackground{
+	-fx-background-color: linear-gradient(#2C8C99, #FBFEF9);
+}
+
+.scroll-pane{
+   -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+	-fx-background-color: transparent;
+}
+
+.increment-button, .decrement-button{
+	-fx-border-color: transparent;
+	-fx-background-color: transparent;
+	
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(44,140,153,.2);
+    -fx-background-radius: 5em;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: transparent;
+}
+

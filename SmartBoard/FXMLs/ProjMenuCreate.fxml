@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="menuPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="380.0" spacing="10.0" styleClass="menupane" stylesheets="@../css/overlay.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="overlays.ProjectMenuCreate">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menutext" text="Create New Project:">
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </Text>
+      <TextField fx:id="newProjName" maxWidth="-Infinity" prefWidth="200.0" promptText="New Project Name" />
+      <Text fx:id="cautionText" fill="#bf1a2f" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="100.0" spacing="30.0">
+         <children>
+            <Button fx:id="createProject" mnemonicParsing="false" onAction="#createNewProject" text="Create Project" />
+            <Button fx:id="goBack" mnemonicParsing="false" text="Go Back" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
