@@ -9,4 +9,4 @@ Web Programming University Assignment - **HTML, CSS, Javascript, PHP**
 
 **Start here: wp/a4/index.php**
 
-Note: This assignment explicitly required me to keep much of the code in single, large files.
+Note: This assignment explicitly required me to keep much of the code in single, large files. 
