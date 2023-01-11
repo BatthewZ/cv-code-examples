@@ -12,6 +12,6 @@ University Assignment - **C# MVC/MVVM project using ASP.NET, EF Core and Azure S
 - Dependency injection
 - Nested SQL queries using multiple join types across tables
 - Data seeding
-
+ 
 **Start Here: Assignment2/Program.cs**
 
