@@ -9,6 +9,6 @@ Cloud Computing University Assignment - **NodeJS, Express, React, Typescript, Re
 - Search / Filter functionality for viewing lessons from other users
 - Lesson Viewer page with ‘get lesson link’ functionality to allow sharing of a lesson to anyone (even without registration).
 
-A live link can be provided upon request (the project is currently offline due to AWS student account constraints).
+A live link can be provided upon request (the project is currently offline due to AWS student account constraints). 
 
  - **App Demo Video:** https://youtu.be/v_SgbDlyPaI
