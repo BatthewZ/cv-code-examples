@@ -43,6 +43,8 @@ export function getDebuffs(skill: Skill): Skill {
       continue;
     }
     if (infoRow.includes('Slow')) {
+      if (infoRow.includes('Slow Resistance')) continue;
+
       debuffs.push(makeReducedByBenefit(infoRow, 'Total Speed'));
     }
     if (infoRow.includes('Fumble')) {

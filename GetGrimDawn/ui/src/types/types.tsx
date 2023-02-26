@@ -1,3 +1,5 @@
+export type ViewLabel = 'teamBuffs' | 'download' | 'teamSummary' | undefined;
+
 export type Character = {
   classNames: string[];
   classes: Skill[];
@@ -22,6 +24,8 @@ export type Item = {
   augment: string;
   details: string;
   grantedSkills?: Skill[];
+  prefix?: string;
+  suffix?: string;
 };
 
 export type Skill = {
@@ -33,6 +37,8 @@ export type Skill = {
   benefits: SkillBenefit[];
   debuffs: SkillBenefit[];
 };
+
+export type OverviewSkill = Skill & {charIndex: number};
 
 export type TeamSkills = {
   teamSkills: Skill[];

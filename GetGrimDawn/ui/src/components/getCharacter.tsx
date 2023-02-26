@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {API_URL} from '../helpers/apiUrl';
+import {getItemDbDetails} from '../helpers/getApiDbData';
 import {prepareTeamSkills} from '../helpers/prepareTeamSkills';
 import {Character, Item} from '../types/types';
 
@@ -30,9 +31,16 @@ export const GetCharacterInput: React.FC<GCIProps> = ({addCharacter, numOfChars}
   async function fetchChar() {
     if (!validateUrl()) return;
 
-    // localhost:8080/loadchar?charURL=https://www.grimtools.com/calc/wV1n5GwZ'
     setLoadButtonStyle({display: 'none'});
-    setLoadingMsg(<>Loading Character (this can take a minute)...</>);
+    setLoadingMsg(
+      <div className='column centerChildren'>
+        <p>Loading Character (this can take a minute)...</p>
+        <div className='loadingBar'></div>
+        <br />
+      </div>
+    );
+
+    // Example: localhost:8080/loadchar?charURL=https://www.grimtools.com/calc/wV1n5GwZ'
     try {
       const response = await (await fetch(API_URL + 'loadchar?charURL=' + charUrl)).json();
       setLoadButtonStyle({display: 'block'});
@@ -52,6 +60,7 @@ export const GetCharacterInput: React.FC<GCIProps> = ({addCharacter, numOfChars}
       const classNames = response.classes.map((cl: any) => cl.name);
       const char = prepareTeamSkills(response);
       char.classNames = classNames;
+      // char.items = await getItemDbDetails(char.items, charUrl);
 
       if (!char)
         return setErrMsg('Something went wrong; We could not load the character. The program might be broken.');

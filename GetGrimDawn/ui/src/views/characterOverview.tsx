@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {DetailsFactory} from '../components/detailsFactory';
+import {API_URL} from '../helpers/apiUrl';
 import {Character} from '../types/types';
 
 type COProps = {
@@ -22,15 +23,15 @@ export const CharacterOverview: React.FC<COProps> = ({character, deleteChar}) =>
     ));
   }
 
-  function downloadJson() {
-    const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(character));
-    const downloadAnchorNode = document.createElement('a');
-    downloadAnchorNode.setAttribute('href', dataStr);
-    downloadAnchorNode.setAttribute('download', 'charData.json');
-    document.body.appendChild(downloadAnchorNode); // required for firefox
-    downloadAnchorNode.click();
-    downloadAnchorNode.remove();
-  }
+  // function downloadJson() {
+  //   const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(character));
+  //   const downloadAnchorNode = document.createElement('a');
+  //   downloadAnchorNode.setAttribute('href', dataStr);
+  //   downloadAnchorNode.setAttribute('download', 'charData.json');
+  //   document.body.appendChild(downloadAnchorNode); // required for firefox
+  //   downloadAnchorNode.click();
+  //   downloadAnchorNode.remove();
+  // }
 
   return (
     <fieldset className='characterOverview'>
@@ -40,9 +41,9 @@ export const CharacterOverview: React.FC<COProps> = ({character, deleteChar}) =>
           View build in Grimtools
         </a>
       </div>
-      <div className='linkText' onClick={downloadJson}>
+      {/* <div className='linkText' onClick={downloadJson}>
         Download Character JSON
-      </div>
+      </div> */}
       <div
         className='linkText'
         onClick={() => {

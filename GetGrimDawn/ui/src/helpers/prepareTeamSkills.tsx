@@ -60,7 +60,9 @@ export function prepareTeamSkills(character: Character) {
       if (skill.name === 'Storm Spirit') teamSkills.push(skill);
 
       // Determine healing skills:
-      if (
+      if (skill.name === 'Siphon Souls') {
+        // Don't add siphon souls to the teamskills list.
+      } else if (
         skill.details.includes('Meter Radius') &&
         (skill.details.includes('Health Restored') || skill.details.includes('Health Regen'))
       ) {

@@ -7,6 +7,10 @@ html {
   box-sizing: border-box;
 }
 
+li {
+  line-height: 2em;
+}
+
 .App {
   text-align: center;
   /* Image Credit: Chris Yuen / WeaponZero */
@@ -24,7 +28,6 @@ html {
 
 .main {
   width: 100%;
-  padding-inline: 5px;
   background-image: linear-gradient(rgb(23, 33, 51, 0.9) 30%, rgba(50, 5, 12, 0.9));
   background-size: cover;
   background-attachment: fixed;
@@ -33,12 +36,20 @@ html {
   min-height: 100vh;
 }
 
+hr {
+  border-top: 1px solid #5b431f;
+  border-bottom: 0px solid transparent;
+  border-left: 0px solid transparent;
+  border-right: 0px solid transparent;
+}
+
 .main p {
   text-align: justify;
   padding-inline: 10px;
 }
 
-button {
+button,
+.button {
   background-image: linear-gradient(rgb(55, 82, 117), rgb(36, 54, 79));
   color: rgb(222, 222, 222);
   padding: 10px;
@@ -51,11 +62,13 @@ button {
   margin: 3px;
 }
 
-button:active {
+button:active,
+.button:active {
   background-image: linear-gradient(rgb(36, 54, 79), rgb(55, 82, 117));
 }
 
-button:hover {
+button:hover,
+.button:hover {
   border: 1px solid rgba(255, 255, 255, 0.397);
   color: white;
 }
@@ -133,6 +146,10 @@ a,
   flex-direction: row;
 }
 
+.wrap {
+  flex-wrap: wrap;
+}
+
 .center {
   text-align: center;
   justify-content: center;
@@ -205,6 +222,27 @@ select {
 
 .centerChildren {
   align-items: center;
+}
+
+.loadingBar {
+  height: 3px;
+  width: 500px;
+  animation-fill-mode: forwards;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  background: linear-gradient(to right, #fff4a1 0%, #5b431f 20%, #5b431f 80%, #fff4a1 100%);
+  background-size: 500px 4px;
+  animation-name: loadingBar;
+}
+
+@keyframes loadingBar {
+  0% {
+    background-position: -500px 0;
+  }
+  100% {
+    background-position: 500px 0;
+  }
 }
 
 @keyframes fadeInOnLoad {

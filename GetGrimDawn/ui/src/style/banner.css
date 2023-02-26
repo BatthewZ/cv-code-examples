@@ -1,0 +1,122 @@
+@font-face {
+  font-family: Trajan;
+  src: url('TRAJAN\ BOLD.TTF');
+}
+
+.banner,
+.flare {
+  min-height: 250px;
+}
+
+.banner {
+  /* Image Credit: Chris Yuen / WeaponZero */
+  background-image: url('../img/GetGrimDawn_TopBanner_20230109_01BGImage.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  /* border: 1px solid black; */
+}
+.shadowLayer,
+.metalLayer,
+.extraGradientLayer {
+  font-size: calc(2vmax + 2.2em);
+  align-self: center;
+  font-family: Trajan;
+  font-weight: bold;
+  max-width: 80%;
+}
+
+.shadowLayer {
+  position: absolute;
+  color: transparent;
+  text-shadow: 6px 4px 4px rgb(0, 0, 0, 0.5);
+  /* position: fixed; */
+}
+
+.metalLayer {
+  position: absolute;
+  background: -webkit-linear-gradient(
+    rgb(141, 141, 138),
+    rgb(220, 222, 216),
+    rgb(51, 51, 50),
+    rgb(159, 159, 149),
+    rgb(86, 84, 83),
+    rgb(107, 107, 105),
+    rgb(198, 198, 195),
+    rgb(177, 177, 172),
+    rgb(145, 145, 142),
+    rgb(200, 201, 198),
+    rgb(203, 203, 199),
+    rgb(195, 193, 192),
+    rgb(127, 127, 125),
+    rgb(219, 219, 214),
+    rgb(86, 87, 85),
+    rgb(141, 141, 138)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.extraGradientLayer {
+  position: absolute;
+  background: linear-gradient(
+    to right,
+    rgb(141, 141, 138, 0.7),
+    rgb(220, 222, 216, 0.7),
+    rgba(81, 81, 80, 0.4),
+    rgba(177, 177, 172, 0.4),
+    rgba(101, 98, 97, 0.4),
+    rgba(87, 87, 84, 0.4),
+    rgb(198, 198, 195, 0.7),
+    rgb(177, 177, 172, 0.7),
+    rgb(220, 222, 216, 0.7),
+    rgb(198, 198, 195, 0.3),
+    rgb(177, 177, 172, 0.3),
+    rgb(102, 102, 95, 0.3)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.flare {
+  /* Image Credit: Chris Yuen / WeaponZero */
+  background-image: url('../img/GetGrimDawn_TopBanner_20230201_03OpticalFlare.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-position-y: -57px; */
+  background-position-y: 70px;
+  background-position-x: center;
+  opacity: 1;
+  z-index: 4;
+  height: 100px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 400px) {
+  .banner,
+  .flare {
+    min-height: 180px;
+  }
+
+  .flare {
+    background-position-y: 0px;
+  }
+}
+
+@media only screen and (min-width: 665px) {
+  .banner,
+  .flare {
+    min-height: 100px;
+  }
+  .flare {
+    background-position-y: -57px;
+  }
+}
